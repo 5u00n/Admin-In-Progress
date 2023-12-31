@@ -64,6 +64,12 @@ const SidebarData = [
             { sublabel: "Email Compose", link: "/compose-email" },
         ],
     },
+    {
+        label: "School Setting",
+        icon: "mdi mdi-cog",
+        isHasArrow: true,
+        url: "/school-setting",
+    },
     
 ]
 export default SidebarData;
