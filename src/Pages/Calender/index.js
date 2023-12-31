@@ -263,7 +263,7 @@ const Calender = (props) => {
     }
   };
 
-  document.title = "Calendar | Upzet - React Admin & Dashboard Template";
+  document.title = "Calendar | Edusofthub - React Admin & Dashboard Template";
   return (
     <React.Fragment>
       <DeleteModal
@@ -273,7 +273,7 @@ const Calender = (props) => {
       />
       <div className="page-content">
         <Container fluid={true}>
-          <Breadcrumbs title="Upzet" breadcrumbItem="Calendar" />
+          <Breadcrumbs title="Edusofthub" breadcrumbItem="Calendar" />
           <Row className="mb-4">
             <Col xl={3}>
               <Card className="h-100">

@@ -31,7 +31,7 @@ import avatar from "../../assets/images/users/avatar-1.jpg";
 import { editProfile, resetProfileFlag } from "../../store/actions";
 
 const UserProfile = () => {
-  document.title = "Profile | Upzet - React Admin & Dashboard Template";
+  document.title = "Profile | Edusofthub - React Admin & Dashboard Template";
 
   const dispatch = useDispatch();
 
@@ -85,7 +85,7 @@ const UserProfile = () => {
     <React.Fragment>
         <div className="page-content">
           <Container fluid>
-            <Breadcrumb title="Upzet" breadcrumbItem="Profile" />
+            <Breadcrumb title="Edusofthub" breadcrumbItem="Profile" />
 
             <Row>
               <Col lg="12">

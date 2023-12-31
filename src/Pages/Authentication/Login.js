@@ -27,7 +27,7 @@ import { loginUser, socialLogin } from "../../store/actions";
 import { facebook, google } from "../../config";
 
 const Login = props => {
-  document.title = "Login | Upzet - React Admin & Dashboard Template";
+  document.title = "Login | Edusofthub - React Admin & Dashboard Template";
 
   const dispatch = useDispatch();
 
@@ -36,7 +36,7 @@ const Login = props => {
     enableReinitialize: true,
 
     initialValues: {
-      email: "admin@Themesdesign.com" || '',
+      email: "admin@DevEdits.com" || '',
       password: "123456" || '',
     },
     validationSchema: Yup.object({
@@ -129,7 +129,7 @@ const Login = props => {
                     Welcome Back !
                   </h4>
                   <p className="mb-5 text-center">
-                    Sign in to continue to Upzet.
+                    Sign in to continue to Edusofthub.
                   </p>
                   <Form
                     className="form-horizontal"
@@ -269,8 +269,8 @@ const Login = props => {
                 </Link>{" "}
               </p>
               <p className="text-white-50">
-                © {new Date().getFullYear()} Upzet. Crafted with{" "}
-                <i className="mdi mdi-heart text-danger"></i> by Themesdesign
+                © {new Date().getFullYear()} Edusofthub. Crafted with{" "}
+                <i className="mdi mdi-heart text-danger"></i> by DevEdits
               </p>
             </div>
           </Col>

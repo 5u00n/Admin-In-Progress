@@ -13,12 +13,12 @@ import { Row, Container } from "reactstrap";
 import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const Dashboard = () => {
-  document.title = "Dashboard | Upzet - React Admin & Dashboard Template";
+  document.title = "Dashboard | Edusofthub - React Admin & Dashboard Template";
   return (
     <React.Fragment>
       <div className="page-content">
         <Container fluid={true}>
-          <Breadcrumbs title="Upzet" breadcrumbItem="Dashboard" />
+          <Breadcrumbs title="Edusofthub" breadcrumbItem="Dashboard" />
           {/* User Panel Charts */}
           <UsePanel />
 

@@ -8,6 +8,12 @@ import Dashboard from "../Pages/Dashboard";
 import Calender from "../Pages/Calender";
 
 
+//Import Users
+import Students from "../Pages/Users/Students";
+import Teachers from "../Pages/Users/Teachers";
+import Parents from "../Pages/Users/Parents";
+
+
 // Import E-mail
 import Inbox from "../Pages/E-mail/Inbox";
 import ReadEmail from "../Pages/E-mail/ReadEmail";
@@ -98,6 +104,11 @@ import GoogleMap from "../Pages/Maps/GoogleMap";
 const authProtectedRoutes = [
   //dashboard
   { path: "/dashboard", component: <Dashboard /> },
+
+  //Users
+  { path: "/users/students", component: <Students /> },
+  { path: "/users/parents", component: <Parents/> },
+  { path: "/users/teachers", component: <Teachers /> },
 
   // Calender
   { path: "/calendar", component: <Calender /> },

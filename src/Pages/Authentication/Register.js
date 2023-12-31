@@ -18,7 +18,7 @@ import logolight from '../../assets/images/logo-light.png';
 import logodark from '../../assets/images/logo-dark.png';
 
 const Register = props => {
-    document.title = "Register | Upzet - React Admin & Dashboard Template";
+    document.title = "Register | Edusofthub - React Admin & Dashboard Template";
 
   const dispatch = useDispatch();
 
@@ -72,7 +72,7 @@ const Register = props => {
                             </div>
 
                             <h4 className="font-size-18 text-muted text-center mt-2">Free Register</h4>
-                            <p className="text-muted text-center mb-4">Get your free Upzet account now.</p>
+                            <p className="text-muted text-center mb-4">Get your free Edusofthub account now.</p>
                             <Form
                                 className="form-horizontal"
                                 onSubmit={(e) => {
@@ -160,7 +160,7 @@ const Register = props => {
                     </Card>
                     <div className="mt-5 text-center">
                         <p className="text-white-50">Already have an account ?<Link to="/login" className="fw-medium text-primary"> Login </Link> </p>
-                        <p className="text-white-50">© {new Date().getFullYear()} Upzet. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesdesign</p>
+                        <p className="text-white-50">© {new Date().getFullYear()} Edusofthub. Crafted with <i className="mdi mdi-heart text-danger"></i> by DevEdits</p>
                     </div>
                 </Col>
             </Row>
