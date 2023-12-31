@@ -18,9 +18,9 @@ const SidebarData = [
             { sublabel: "Students", link: "/users/students" },
             { sublabel: "Teachers", link: "/users/teachers" },
             { sublabel: "Parents", link: "/users/parents" },
-            { sublabel: "Other Staff", link: "/users/staff" },
-            { sublabel: "Admin", link: "/users/admins" },
-            { sublabel: "Addmission", link: "/addmission" },
+            { sublabel: "Staff", link: "/users/staff" },
+            { sublabel: "Admin", link: "/users/admin" },
+            { sublabel: "Addmission", link: "/users/addmission" },
             
         ],
     },

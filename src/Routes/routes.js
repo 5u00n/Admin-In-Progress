@@ -12,6 +12,9 @@ import Calender from "../Pages/Calender";
 import Students from "../Pages/Users/Students";
 import Teachers from "../Pages/Users/Teachers";
 import Parents from "../Pages/Users/Parents";
+import Staff from "../Pages/Users/OtherStaff";
+import Admin from "../Pages/Users/Admin";
+import Addmission from "../Pages/Users/Addmission";
 
 
 // Import E-mail
@@ -109,6 +112,9 @@ const authProtectedRoutes = [
   { path: "/users/students", component: <Students /> },
   { path: "/users/parents", component: <Parents/> },
   { path: "/users/teachers", component: <Teachers /> },
+  { path: "/users/staff", component: <Staff/> },
+  { path: "/users/admin", component: <Admin /> },
+  { path: "/users/addmission", component: <Addmission /> },
 
   // Calender
   { path: "/calendar", component: <Calender /> },
@@ -204,7 +210,7 @@ const publicRoutes = [
   // Authentication Inner Pages
   { path: "/auth-login", component: <Login1 /> },
   { path: "/auth-register", component: <Register1 /> },
-  { path: "/auth-recoverpw", component: <RecoverPassword /> },
+  { path: "/auth-recovery", component: <RecoverPassword /> },
   { path: "/auth-lock-screen", component: <LockScreen /> },
 
   // Utility Pages

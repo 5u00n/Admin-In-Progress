@@ -9,3 +9,7 @@ $value in $theme-colors {
         background-color: rgba(($value), 0.25) !important;
     }
 }
+
+.col{
+    min-width: 210px;
+}

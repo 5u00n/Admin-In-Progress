@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, CardBody,  CardTitle, CardHeader, Col, Container,
-    CardSubtitle,Form, ListGroup, ListGroupItem, Modal, ModalBody, ModalFooter, Row, ModalHeader } from 'reactstrap';
+    CardSubtitle,Form, Modal, ModalBody, ModalFooter, Row, ModalHeader } from 'reactstrap';
 import Breadcrumbs from "../../../components/Common/Breadcrumb";
 //import SimpleBar from 'simplebar-react';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ import Select from 'react-select';
 //import Flatpickr from "react-flatpickr";
 
 
-const Students = () => {
+const Staff = () => {
 
     const [modal_list, setmodal_list] = useState(false);
     function tog_list() {
@@ -109,7 +109,7 @@ const Students = () => {
         <React.Fragment>
             <div className="page-content">
                 <Container fluid>
-                <Breadcrumbs title="Edusofthub" breadcrumbItem="Users" breadcrumbSubItem="Students" />
+                    <Breadcrumbs title="Edusofthub" breadcrumbItem="Users" breadcrumbSubItem="Staff" />
 
                     <Row>
                         <Col lg={12}>
@@ -131,28 +131,7 @@ const Students = () => {
                                                 </div>
                                             </Col>
 
-                                            <Col className="col-sm">
-                                                <Select
-                                                    placeholder="Select Class"
-                                                    value={selectedGroup}
-                                                    onChange={() => {
-                                                        handleSelectGroup();
-                                                    }}
-                                                    options={classOptionGroup}
-                                                    classNamePrefix="select2-selection"
-                                                />
-                                            </Col>
-                                            <Col className="col-sm">
-                                                <Select
-                                                    placeholder="Select Section"
-                                                    value={selectedGroup}
-                                                    onChange={() => {
-                                                        handleSelectGroup();
-                                                    }}
-                                                    options={sectionOptionGroup}
-                                                    classNamePrefix="select2-selection"
-                                                />
-                                            </Col>
+
                                             <Col className="col-sm">
                                                 <div className="d-flex justify-content-sm-end">
                                                     <div className="search-box ms-2">
@@ -507,7 +486,7 @@ const Students = () => {
 
             {/* Add Modal */}
             <Modal isOpen={modal_list} toggle={() => { tog_list(); }} centered >
-                <ModalHeader className="bg-light p-3" id="exampleModalLabel" toggle={() => { tog_list(); }}> Add Student </ModalHeader>
+                <ModalHeader className="bg-light p-3" id="exampleModalLabel" toggle={() => { tog_list(); }}> Add Staff </ModalHeader>
                 <form className="tablelist-form">
                     <ModalBody>
                         <div className="mb-3" id="modal-id" style={{ display: "none" }}>
@@ -516,7 +495,7 @@ const Students = () => {
                         </div>
 
                         <div className="mb-3">
-                            <label htmlFor="customername-field" className="form-label">Student Name</label>
+                            <label htmlFor="customername-field" className="form-label">Staff Name</label>
                             <input type="text" id="customername-field" className="form-control" placeholder="Enter Name" required />
                         </div>
 
@@ -554,7 +533,7 @@ const Students = () => {
                     <ModalFooter>
                         <div className="hstack gap-2 justify-content-end">
                             <button type="button" className="btn btn-light" onClick={() => setmodal_list(false)}>Close</button>
-                            <button type="submit" className="btn btn-success" id="add-btn">Add Student</button>
+                            <button type="submit" className="btn btn-success" id="add-btn">Add Staff</button>
                             {/* <button type="button" className="btn btn-success" id="edit-btn">Update</button> */}
                         </div>
                     </ModalFooter>
@@ -562,7 +541,7 @@ const Students = () => {
             </Modal>
 
             <Modal isOpen={modal_list_bulk} toggle={() => { tog_list_bulk(); }} centered >
-                <ModalHeader className="bg-light p-3" id="exampleModalLabel" toggle={() => { tog_list_bulk(); }}> Add Student In Bulk</ModalHeader>
+                <ModalHeader className="bg-light p-3" id="exampleModalLabel" toggle={() => { tog_list_bulk(); }}> Add Staff In Bulk</ModalHeader>
                 <form className="tablelist-form">
                     <ModalBody>
                         <div className="mb-3" >
@@ -660,7 +639,7 @@ const Students = () => {
                         </div>
 
                         <div className="mb-3">
-                            <label htmlFor="customername-field" className="form-label">Student Name</label>
+                            <label htmlFor="customername-field" className="form-label">Staff Name</label>
                             <input type="text" id="customername-field" className="form-control" placeholder="Enter Name" required />
                         </div>
 
@@ -698,7 +677,7 @@ const Students = () => {
                     <ModalFooter>
                         <div className="hstack gap-2 justify-content-end">
                             <button type="button" className="btn btn-light" onClick={() => setmodal_list_bulk(false)}>Close</button>
-                            <button type="submit" className="btn btn-success" id="add-btn">Add Student</button>
+                            <button type="submit" className="btn btn-success" id="add-btn">Add Staff</button>
                             {/* <button type="button" className="btn btn-success" id="edit-btn">Update</button> */}
                         </div>
                     </ModalFooter>
@@ -728,4 +707,5 @@ const Students = () => {
         </React.Fragment>
     );
 };
-export default Students;
+
+export default Staff;
