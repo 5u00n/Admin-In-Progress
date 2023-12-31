@@ -9,7 +9,7 @@ const SidebarData = [
         url: "/dashboard",
         issubMenubadge: true,
         bgcolor: "bg-primary",
-        badgeValue: "3"
+        badgeValue: ""
     },
     {
         label: "Users",
