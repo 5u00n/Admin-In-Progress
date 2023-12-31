@@ -17,6 +17,14 @@ import Admin from "../Pages/Users/Admin";
 import Addmission from "../Pages/Users/Addmission";
 
 
+//Import Acadamics
+import Class from "../Pages/Acadamics/Class";
+import Classroom from "../Pages/Acadamics/Classroom/";
+import Subject from "../Pages/Acadamics/Subject/index.js";
+
+
+
+
 // Import E-mail
 import Inbox from "../Pages/E-mail/Inbox";
 import ReadEmail from "../Pages/E-mail/ReadEmail";
@@ -104,17 +112,35 @@ import VectorMaps from "../Pages/Maps/VectorMap";
 import GoogleMap from "../Pages/Maps/GoogleMap";
 
 
+import Syllabus from "../Pages/Acadamics/Syllabus/index.js";
+import Deparment from "../Pages/Acadamics/Department/index.js";
+import DailyAttendance from "../Pages/Acadamics/DailyAttendance/index.js";
+import ClassRoutine from "../Pages/Acadamics/ClassRoutine/index.js";
+import EventsCalendar from "../Pages/Acadamics/EventsCalander/index.js";
+
+
 const authProtectedRoutes = [
   //dashboard
   { path: "/dashboard", component: <Dashboard /> },
 
   //Users
   { path: "/users/students", component: <Students /> },
-  { path: "/users/parents", component: <Parents/> },
+  { path: "/users/parents", component: <Parents /> },
   { path: "/users/teachers", component: <Teachers /> },
-  { path: "/users/staff", component: <Staff/> },
+  { path: "/users/staff", component: <Staff /> },
   { path: "/users/admin", component: <Admin /> },
   { path: "/users/addmission", component: <Addmission /> },
+
+  //Acadamics
+  { path: "/acadamics/class", component: <Class/> },
+  { path: "/acadamics/classroom", component: <Classroom/> },
+  { path: "/acadamics/subject", component: <Subject/> },
+  { path: "/acadamics/syllabus", component: <Syllabus/> },
+  { path: "/acadamics/department", component: <Deparment/>},
+  { path: "/acadamics/daily-attendance", component: <DailyAttendance/>},
+  { path: "/acadamics/class-routine", component: <ClassRoutine/>},
+  { path: "/acadamics/event-calendar", component: <EventsCalendar/>},
+
 
   // Calender
   { path: "/calendar", component: <Calender /> },
