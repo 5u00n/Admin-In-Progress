@@ -12,8 +12,11 @@ import NonAuthLayout from "../Layout/NonAuthLayout";
 import VerticalLayout from "../Layout/VerticalLayout/index";
 import HorizontalLayout from "../Layout/HorizontalLayout/index";
 import { AuthProtected } from "./AuthProtected";
+import { AuthProtectedSuperadmin } from "./AuthProtectedSuperadmin";
 
-import { authProtectedRoutes, publicRoutes } from "./routes";
+
+import { authProtectedRoutes, publicRoutes,superadminRoutes } from "./routes";
+import SuperadminLayout from "../Layout/SuperadminLayout/SuperadminLayout";
 
 const getLayout = (layoutType) => {
   let Layout = VerticalLayout;
@@ -52,6 +55,20 @@ const Index = () => {
             key={idx}
             exact={true}
           />
+        ))}
+      </Route>
+
+      <Route>
+        {superadminRoutes.map((route,idx)=>(
+          <Route
+          path={route.path}
+          element={
+            <AuthProtectedSuperadmin>
+                <SuperadminLayout>{route.component}</SuperadminLayout>
+            </AuthProtectedSuperadmin>} 
+            key={idx}
+            exact={true}
+            />
         ))}
       </Route>
 

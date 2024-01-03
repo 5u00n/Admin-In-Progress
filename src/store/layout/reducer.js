@@ -24,7 +24,7 @@ const INIT_STATE = {
   layoutWidth: layoutWidthTypes.FLUID,
   leftSideBarTheme: leftSideBarThemeTypes.DARK,
   leftSideBarType: leftSidebarTypes.DEFAULT,
-  topbarTheme: topBarThemeTypes.LIGHT,
+  topbarTheme: topBarThemeTypes.DARK,
   showRightSidebar: false,
   isMobile: false,
   showSidebar: true,

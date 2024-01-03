@@ -78,7 +78,7 @@ const Login = () => {
                           </div>
 
                           <Row>
-                            <Col>
+                            <Col className="col-7">
                               <div className="form-check">
                                 <input
                                   type="checkbox"

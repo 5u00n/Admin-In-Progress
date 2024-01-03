@@ -164,7 +164,7 @@ const Login = props => {
                           </div>
 
                           <Row>
-                            <Col>
+                            <Col >
                               <div className="form-check">
                                 <input
                                   type="checkbox"

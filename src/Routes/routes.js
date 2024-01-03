@@ -117,11 +117,18 @@ import Deparment from "../Pages/Acadamics/Department/index.js";
 import DailyAttendance from "../Pages/Acadamics/DailyAttendance/index.js";
 import ClassRoutine from "../Pages/Acadamics/ClassRoutine/index.js";
 import EventsCalendar from "../Pages/Acadamics/EventsCalander/index.js";
+import SuperAdmin from "../Pages/SuperAdmin/SuperAdmin.js";
 
+const superadminRoutes =[
+    //SuperAdmin
+    { path: "/superadmin", component: <SuperAdmin /> },
+];
 
 const authProtectedRoutes = [
   //dashboard
   { path: "/dashboard", component: <Dashboard /> },
+
+
 
   //Users
   { path: "/users/students", component: <Students /> },
@@ -225,6 +232,8 @@ const authProtectedRoutes = [
   },
 ];
 
+
+
 const publicRoutes = [
 
   // Authentication Page
@@ -246,4 +255,4 @@ const publicRoutes = [
   { path: "/pages-comingsoon", component: <ComingSoon /> },
 ];
 
-export { authProtectedRoutes, publicRoutes };
+export { authProtectedRoutes, publicRoutes,superadminRoutes};

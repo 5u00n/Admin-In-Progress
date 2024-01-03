@@ -121,17 +121,17 @@ const Students = () => {
                                 <CardBody>
                                     <div id="customerList">
                                         <Row className="g-4 mb-3">
-                                            <Col className="col-sm-auto">
-                                                <div className="d-flex gap-1">
-                                                    <Button color="success" className="add-btn" onClick={() => tog_list()} id="create-btn"><i className="ri-add-line align-bottom me-1"></i> Add</Button>
-                                                    <Button color="success" className="add-btn" onClick={() => tog_list_bulk()} id="create-btn"><i className="ri-add-line align-bottom me-1"></i> Add in Bulk</Button>
+                                            <div className="col-sm-auto ">
+                                                <div className="d-flex gap-1 min-vw-330">
+                                                    <Button color="success" size='210' className="add-btn btn-lg" onClick={() => tog_list()} id="create-btn"><i className="ri-add-line align-bottom me-1"></i> Add</Button>
+                                                    <Button color="success" className="add-btn btn-lg" onClick={() => tog_list_bulk()} id="create-btn"><i className="ri-add-line align-bottom me-1"></i> Add in Bulk</Button>
                                                     <Button color="soft-danger"
                                                     // onClick="deleteMultiple()"
                                                     ><i className="ri-delete-bin-2-line"></i></Button>
                                                 </div>
-                                            </Col>
+                                            </div>
 
-                                            <Col className="col-sm">
+                                            <div className="col-sm min-vw-330">
                                                 <Select
                                                     placeholder="Select Class"
                                                     value={selectedGroup}
@@ -141,8 +141,8 @@ const Students = () => {
                                                     options={classOptionGroup}
                                                     classNamePrefix="select2-selection"
                                                 />
-                                            </Col>
-                                            <Col className="col-sm">
+                                            </div>
+                                            <div className="col-sm">
                                                 <Select
                                                     placeholder="Select Section"
                                                     value={selectedGroup}
@@ -152,7 +152,7 @@ const Students = () => {
                                                     options={sectionOptionGroup}
                                                     classNamePrefix="select2-selection"
                                                 />
-                                            </Col>
+                                            </div>
                                             <Col className="col-sm">
                                                 <div className="d-flex justify-content-sm-end">
                                                     <div className="search-box ms-2">
