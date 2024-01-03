@@ -2,7 +2,8 @@ import firebase from 'firebase/compat/app';
 
 // Add the Firebase products that you want to use
 import "firebase/compat/auth";
-import "firebase/compat/firestore";
+import "firebase/compat/database";
+//import "firebase/compat/firestore";
 
 class FirebaseAuthBackend {
   constructor(firebaseConfig) {
@@ -165,6 +166,70 @@ class FirebaseAuthBackend {
     if (!localStorage.getItem("authUser")) return null;
     return JSON.parse(localStorage.getItem("authUser"));
   };
+
+  /**
+     * Fetch data from the Realtime Database at a specific path
+     */
+  fetchDataRequest = async (path) => {
+    return new Promise((resolve, reject) => {
+      const databaseRef = firebase.database().ref(path);
+      databaseRef.on('value', (snapshot) => {
+        //console.log("Fire  " + snapshot.val());
+        resolve(snapshot.val());
+      });
+    });
+  };
+
+
+  fetchDataRealtime = async (path) => {
+    return new Promise((resolve, reject) => {
+      const databaseRef = firebase.database().ref(path);
+      databaseRef.on('value', (snapshot) => {
+        resolve(snapshot.val());
+      });
+    });
+  }
+
+
+
+  fetchDataOnce = async (path) => {
+    const snapshot = await firebase.database().ref('data').once('value');
+    const data = snapshot.val();
+    //console.log("From firesebase_helper   " + snapshot.val());
+    const formattedData = [];
+
+    for (let id in data) {
+      formattedData.push({
+        id,
+        ...data[id]
+      });
+    }
+
+    return data;
+  };
+
+  fetchDataRef= (path) => {
+    return firebase.database().ref(path)   
+  }
+
+  /**
+   * 
+   * @param {get school refernece point} schoolName 
+   */
+  fetchSchoolData = async (schoolName) => {
+    const schoolRef = firebase.database().ref(schoolName);
+    return schoolRef;
+  }
+
+  /**
+   * 
+   * @param {get school users refernece point} schoolName
+   */
+  fetchSchoolUsers = async (schoolName, usersType) => {
+    const schoolUsesRef = firebase.database().ref(schoolName).child(usersType);
+    return schoolUsesRef;
+  }
+
 
   /**
    * Handle the error

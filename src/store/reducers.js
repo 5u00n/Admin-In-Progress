@@ -12,14 +12,17 @@ import login from "./auth/login/reducer";
 import profile from "./auth/profile/reducer";
 import account from "./auth/register/reducer";
 
+import databaseReducer from "./database/reducer";
+
 const rootReducer = combineReducers({
   // public
-  Layout,
-  calendar,
-  forgetPassword,
-  login,
-  profile,
-  account,
+  Layout:Layout,
+  calendar:calendar,
+  forgetPassword:forgetPassword,
+  login:login,
+  profile:profile,
+  account:account,
+  database: databaseReducer,
 });
 
 export default rootReducer;
