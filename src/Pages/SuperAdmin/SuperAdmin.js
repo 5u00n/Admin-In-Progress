@@ -31,7 +31,7 @@ const SuperAdmin = () => {
                     </Row>
                     <Row>
                         <Col className='mb-4'> 
-                            <p className="text-white">Lorem ipsum dolor sit amet consectetur. Quisque elit viverra velit vel amet. Eget erat bibendum eros nunc. In mattis mauris tortor nibh consectetur ultrices. At vulputate non tempus quis. Id fermentum ligula quam interdum ut ut morbi. In venenatis praesent habitasse sit tincidunt vitae sit adipiscing</p>
+                            <p className="text-white">Lorem ipsum dolor sit amet consectetur. Quisque elit viverra velit vel amet.</p>
                         </Col>
                     </Row>
 
