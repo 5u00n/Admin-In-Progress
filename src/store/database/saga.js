@@ -25,7 +25,7 @@ import {
 function* fetchData(action) {
   try {
     const { path } = action.payload;
-    console.log("Sagas data  new ----------------------------------\n",path);
+    //console.log("Sagas data  new ----------------------------------\n",path);
     const dataRef = yield call(getFirebaseBackend().fetchDataRef,path);
 
     const channel = yield call(createEventChannel, dataRef);
@@ -33,7 +33,7 @@ function* fetchData(action) {
     while (true) {
       const data = yield take(channel);
       if(data!=null){
-      console.log("Sagas data  new ++ ----------------------------------\n",data);
+      //console.log("Sagas data  new ++ ----------------------------------\n",data);
       yield put(fetchDataSuccess(data));
       }else{
         break;

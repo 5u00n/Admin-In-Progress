@@ -4,7 +4,7 @@ import { Container, Row, Col } from "reactstrap";
 const Footer = () => {
   return (
     <React.Fragment>
-      <footer className="footer bg-transparent text-white">
+      <footer className=" bg-transparent text-white footer px-5" style={{left: "0", bottom: "0", width: "100%"}}>
         <Container fluid={true}>
           <Row>
             <Col sm={6}>{new Date().getFullYear()} © Edusofthub.</Col>

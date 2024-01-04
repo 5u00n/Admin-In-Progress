@@ -118,10 +118,18 @@ import DailyAttendance from "../Pages/Acadamics/DailyAttendance/index.js";
 import ClassRoutine from "../Pages/Acadamics/ClassRoutine/index.js";
 import EventsCalendar from "../Pages/Acadamics/EventsCalander/index.js";
 import SuperAdmin from "../Pages/SuperAdmin/SuperAdmin.js";
+import AddSchool1 from "../Pages/SuperAdmin/AddSchool1.js";
 
 const superadminRoutes =[
     //SuperAdmin
     { path: "/superadmin", component: <SuperAdmin /> },
+    { path: "/add-school-1", component: <AddSchool1 /> },
+    {
+      path: "/",
+      exact: true,
+      component: <Navigate to="/superadmin" />,
+    },
+
 ];
 
 const authProtectedRoutes = [
@@ -150,7 +158,7 @@ const authProtectedRoutes = [
 
 
   // Calender
-  { path: "/calendar", component: <Calender /> },
+  { path: "/acadamics/calendar", component: <Calender /> },
 
   // Profile
   { path: "/userprofile", component: <UserProfile /> },

@@ -43,7 +43,7 @@ const SidebarData = [
         label: "Calendar",
         icon: "mdi mdi-calendar-outline",
         isHasArrow: true,
-        url: "/calendar",
+        url: "/acadamics/calendar",
     },
     {
         label: "Examinantion",

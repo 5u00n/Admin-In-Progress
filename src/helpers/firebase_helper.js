@@ -209,6 +209,9 @@ class FirebaseAuthBackend {
   };
 
   fetchDataRef= (path) => {
+    if(path===null){
+      return firebase.database().ref();
+    }
     return firebase.database().ref(path)   
   }
 

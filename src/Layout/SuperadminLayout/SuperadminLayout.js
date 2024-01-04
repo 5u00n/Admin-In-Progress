@@ -92,7 +92,7 @@ const Layout = (props) => {
 <div id="layout-wrapper">
         <Header  />
         
-        <div className="main-content">{props.children}</div>
+        <div className="py-5">{props.children}</div>
         <Footer />
       </div>
 
