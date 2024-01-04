@@ -33,6 +33,16 @@ const getLayout = (layoutType) => {
   return Layout;
 };
 
+/*
+const ROLES = {
+  'Superadmin': 2001,
+  'Admin': 1984,
+  'Staff': 5150,
+  'Examinator': 5151,
+  'User': 1234,
+}
+*/
+
 const Index = () => {
 
   const { layoutType } = useSelector((state) => ({
@@ -58,7 +68,7 @@ const Index = () => {
         ))}
       </Route>
 
-      <Route>
+      <Route  >
         {superadminRoutes.map((route,idx)=>(
           <Route
           path={route.path}

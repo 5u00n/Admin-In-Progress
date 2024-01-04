@@ -21,7 +21,7 @@ import Footer from "./Footer";
 const Layout = (props) => {
   const dispatch = useDispatch();
 
-  const { topbarTheme, layoutWidth, showRightSidebar } =
+  const { topbarTheme, layoutWidth } =
     useSelector((state) => ({
       topbarTheme: state.Layout.topbarTheme,
       layoutWidth: state.Layout.layoutWidth,
@@ -61,7 +61,7 @@ const Layout = (props) => {
   layout settings
   */
   useEffect(() => {
-    dispatch(changeLayout("horizontal"));
+    dispatch(changeLayout("vertical"));
   }, [dispatch]);
 
   useEffect(() => {
@@ -89,12 +89,9 @@ const Layout = (props) => {
   return (
     <React.Fragment>
 
-      <div id="layout-wrapper">
-        <Header
-          theme={topbarTheme}
-          isMenuOpened={isMenuOpened}
-          openLeftMenuCallBack={openMenu}
-        />
+<div id="layout-wrapper">
+        <Header  />
+        
         <div className="main-content">{props.children}</div>
         <Footer />
       </div>

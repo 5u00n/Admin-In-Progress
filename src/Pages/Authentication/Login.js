@@ -17,7 +17,7 @@ import { useFormik } from "formik";
 
 
 // actions
-import { loginUser, socialLogin } from "../../store/actions";
+import { loginUser } from "../../store/actions";
 
 
 const Login = props => {
@@ -53,26 +53,7 @@ const Login = props => {
   //   dispatch(loginUser(values, props.router.navigate));
   // };
 
-  const signIn = (res, type) => {
-    if (type === "google" && res) {
-      const postData = {
-        name: res.profileObj.name,
-        email: res.profileObj.email,
-        token: res.tokenObj.access_token,
-        idToken: res.tokenId,
-      };
-      dispatch(socialLogin(postData, props.router.navigate, type));
-    } else if (type === "facebook" && res) {
-      const postData = {
-        name: res.name,
-        email: res.email,
-        token: res.accessToken,
-        idToken: res.tokenId,
-      };
-      dispatch(socialLogin(postData, props.router.navigate, type));
-    }
-  };
-
+ 
 
 
   useEffect(() => {

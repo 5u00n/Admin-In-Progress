@@ -7,14 +7,13 @@ import { apiError, loginSuccess, logoutUserSuccess } from "./actions";
 //Include Both Helper File with needed methods
 import { getFirebaseBackend } from "../../../helpers/firebase_helper";
 import {
-  postFakeLogin,
-  postJwtLogin,
   postSocialLogin,
 } from "../../../helpers/fakebackend_helper";
 
 const fireBaseBackend = getFirebaseBackend();
 
 function* loginUser({ payload: { user, history } }) {
+  var usertype = "admin";
   try {
     if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
       const response = yield call(
@@ -22,23 +21,17 @@ function* loginUser({ payload: { user, history } }) {
         user.email,
         user.password
       );
-      yield put(loginSuccess(response));
-    } else if (process.env.REACT_APP_DEFAULTAUTH === "jwt") {
-      const response = yield call(postJwtLogin, {
-        email: user.email,
-        password: user.password,
-      });
-      localStorage.setItem("authUser", JSON.stringify(response));
-      yield put(loginSuccess(response));
-    } else if (process.env.REACT_APP_DEFAULTAUTH === "fake") {
-      const response = yield call(postFakeLogin, {
-        email: user.email,
-        password: user.password,
-      });
-      localStorage.setItem("authUser", JSON.stringify(response));
+      //console.log("firebase response :+", response.uid);
+      usertype = yield call(getFirebaseBackend().fetchDataOnce, "users/" + response.uid + "/type");
+      console.log("firebase response :+", usertype);
       yield put(loginSuccess(response));
     }
-    history("/dashboard");
+    if (usertype === "admin") {
+      history("/dashboard");
+    }
+    else if (usertype === "superadmin") {
+      history("/superadmin");
+    }
   } catch (error) {
     yield put(apiError(error));
   }

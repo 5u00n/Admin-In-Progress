@@ -23,6 +23,7 @@ const login = (state = initialState, action) => {
       state = {
         ...state,
         loading: false,
+        userType: action.payload.user.userType,
       };
       break;
     case LOGOUT_USER:

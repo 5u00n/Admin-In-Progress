@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React, { useState } from "react";
 
 import { connect } from "react-redux";
@@ -54,9 +53,19 @@ const Header = (props) => {
     }
   }
 
+  function tToggle() {
+    var body = document.body;
+    if (window.screen.width <= 998) {
+      body.classList.toggle("sidebar-enable");
+    } else {
+      body.classList.toggle("vertical-collpsed");
+      body.classList.toggle("sidebar-enable");
+    }
+  }
+
   return (
     <React.Fragment>
-      <header id="page-topbar" >
+      <header id="page-topbar">
         <div className="navbar-header">
           <div className="d-flex">
             <div className="navbar-brand-box text-center">
@@ -81,14 +90,13 @@ const Header = (props) => {
 
             <button
               type="button"
-              className="btn btn-sm px-3 font-size-16 d-lg-none header-item"
-              data-toggle="collapse"
+              className="btn btn-sm px-3 font-size-24 header-item waves-effect"
+              id="vertical-menu-btn"
               onClick={() => {
-                props.toggleLeftmenu(!props.leftMenu);
+                tToggle();
               }}
-              data-target="#topnav-menu-content"
             >
-              <i className="fa fa-fw fa-bars" />
+              <i className="ri-menu-2-line align-middle"></i>
             </button>
 
             <form className="app-search d-none d-lg-block">
@@ -115,7 +123,6 @@ const Header = (props) => {
               >
                 <i className="ri-search-line" />
               </button>
-
               <div
                 className={
                   search
@@ -145,7 +152,6 @@ const Header = (props) => {
             </div>
 
             <LanguageDropdown />
-
             <AppsDropdown />
 
             <div className="dropdown d-none d-lg-inline-block ms-1">
@@ -183,16 +189,6 @@ const Header = (props) => {
       </header>
     </React.Fragment>
   );
-};
-
-Header.propTypes = {
-  changeSidebarType: PropTypes.func,
-  leftMenu: PropTypes.any,
-  leftSideBarType: PropTypes.any,
-  showRightSidebar: PropTypes.any,
-  showRightSidebarAction: PropTypes.func,
-  t: PropTypes.any,
-  toggleLeftmenu: PropTypes.func,
 };
 
 const mapStatetoProps = (state) => {

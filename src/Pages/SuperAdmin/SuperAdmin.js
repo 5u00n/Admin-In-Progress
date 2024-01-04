@@ -36,7 +36,7 @@ const SuperAdmin = () => {
                     </Row>
 
                     <Row>
-                        <Col xs={14} sm={4} md={6} lg={4}  xl={4} mg={6} >
+                        <Col xs={14} sm={14} md={6} lg={4}  xl={4} mg={6} >
                             <Card className="text-center" style={{
                                 minHeight: '19rem',
                                 minWidth: '19rem',
@@ -52,7 +52,7 @@ const SuperAdmin = () => {
                             </Card>
                         </Col>
 
-                        <Col xs={12} md={6} lg={3} mg={6}>
+                        <Col xs={14} sm={14} md={6} lg={4}  xl={4} mg={6}>
                             <Card style={{
                                 minHeight: '19rem',
                                 minWidth: '19rem',
@@ -66,10 +66,10 @@ const SuperAdmin = () => {
                                         Support card subtitle
                                     </CardSubtitle>
                                     <Link to="#" className="card-link">
-                                        <span className="text-white"><i class="mdi mdi-pencil" aria-hidden="true"></i>Edit</span>
+                                        <span className="text-white"><i className="mdi mdi-pencil" aria-hidden="true"></i>Edit</span>
                                     </Link>
                                     <Link to="#" className="card-link">
-                                    <span className="text-danger"><i class="mdi mdi-delete" aria-hidden="true"></i> Delete</span>
+                                    <span className="text-danger"><i className="mdi mdi-delete" aria-hidden="true"></i> Delete</span>
                                     </Link>
                                 </CardBody>
                             </Card>

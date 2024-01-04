@@ -6,6 +6,9 @@ import { useProfile } from "../Hooks/UserHooks";
 const AuthProtected = (props) => {
   const { userProfile, loading } = useProfile();
 
+  //console.log("AuthProtected", userProfile.uid, loading);
+
+  //console.log("Props", props);
   /*
     redirect is un-auth access protected routes via url
     */

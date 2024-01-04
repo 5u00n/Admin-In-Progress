@@ -193,7 +193,7 @@ class FirebaseAuthBackend {
 
 
   fetchDataOnce = async (path) => {
-    const snapshot = await firebase.database().ref('data').once('value');
+    const snapshot = await firebase.database().ref(path).once('value');
     const data = snapshot.val();
     //console.log("From firesebase_helper   " + snapshot.val());
     const formattedData = [];
