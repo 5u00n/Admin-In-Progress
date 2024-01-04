@@ -9,7 +9,7 @@ import FormThree from './FormThree';
 const AddSchool1 = () => {
 
 
-    const [create_progress, setcreate_progress] = useState("none");
+    const [create_progress, setcreate_progress] = useState(1);
 
     function set_create_progress(prog){
         setcreate_progress(prog);
@@ -18,7 +18,7 @@ const AddSchool1 = () => {
     const [school_list, setschool_list] = useState(false);
     function create_school() {
         setschool_list(!school_list);
-        setcreate_progress("loading");
+        setcreate_progress(2);
     }
 
 

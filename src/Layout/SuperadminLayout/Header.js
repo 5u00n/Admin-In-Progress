@@ -53,15 +53,7 @@ const Header = (props) => {
     }
   }
 
-  function tToggle() {
-    var body = document.body;
-    if (window.screen.width <= 998) {
-      body.classList.toggle("sidebar-enable");
-    } else {
-      body.classList.toggle("vertical-collpsed");
-      body.classList.toggle("sidebar-enable");
-    }
-  }
+  
 
   return (
     <React.Fragment>

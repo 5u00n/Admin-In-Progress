@@ -2,6 +2,8 @@ import React from 'react';
 import { Row, Col, Button} from 'reactstrap';
 import illustration from '../../assets/images/illutration/globe_learning.png';
 const FormThree = ({ prev, finish,create_school,create_progress }) => {
+
+    console.log(create_progress);
     return (
         <Row>
             <Col md={6}>
@@ -32,15 +34,15 @@ const FormThree = ({ prev, finish,create_school,create_progress }) => {
                     </Row>
 
                     <Row>
-                        <Col lg={5} md={6}>
-                            <div className="mb-5 py-1">
-                                <Button color="primary"onClick={() => create_school()} className="btn btn-info w-md " style={{ marginRight: "36px" }}>
+                        <Col lg={4} md={4} sm={4}>
+                            <div className="mb-5 py-1 ">
+                                <Button color="primary" id="create-btn" onClick={create_school} className="btn btn-info w-md " style={{ marginRight: "0px" }}>
                                     Create
                                 </Button>
 
-                                {create_progress==="none" &&  <div></div>}
-                                {create_progress==="loding" &&   <i className='mdi-autorenew mdi font-size-24'></i>}
-                                {create_progress==="finished" &&  <i className='mdi mdi-progress-check font-size-24'></i>}
+                                {create_progress===1 &&  <div></div>}
+                                {create_progress === 2 && <span className="spin" style={{width:"42px",height:"42px",float:"right",paddingLeft:"7px"}}><i className='mdi-autorenew mdi spin' style={{fontSize:"28px"}}></i></span>}
+                                {create_progress===3 &&  <i className='mdi mdi-progress-check font-size-20'></i>}
                                
                                 
                             </div>
