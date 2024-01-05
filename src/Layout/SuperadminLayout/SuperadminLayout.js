@@ -25,7 +25,7 @@ const Layout = (props) => {
 
   const pathname = props.router.location.pathname;
 
-  console.log("pathname", pathname);
+  //console.log("pathname", pathname);
   const dispatch = useDispatch();
 
   const {
@@ -134,7 +134,7 @@ const Layout = (props) => {
           type={leftSideBarType}
           isMobile={isMobile}
         /> : null : null}
-        <div className={pathname === "/superadmin" ? pathname === "/add-school-1" ? "py-5" : "main-content" : "main-content"}>{props.children}</div>
+        <div className={pathname === "/superadmin" ? pathname === "/add-school-1" ? "py-5" : "py-5" : "main-content"}>{props.children}</div>
         <Footer />
       </div>
 

@@ -88,7 +88,7 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
 
                         {Object.keys(schools).map(key => (
                             <Col className="col-lg-auto col-md-auto col-sm-6" key={key}>
-                                <Link to={"/" + schools[key].school_short} >
+                                <Link to={"/" + schools[key].school_short+"/dashboard"} >
                                     <Card style={{
                                         minHeight: '12rem',
                                         minWidth: '12rem',

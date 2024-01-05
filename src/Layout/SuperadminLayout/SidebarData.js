@@ -15,7 +15,7 @@ const SidebarData = [
         label: "Users",
         icon: "mdi mdi-account-circle",
         subItem: [
-            { sublabel: "Students", link: "//users/students" },
+            { sublabel: "Students", link: "/users/students" },
             { sublabel: "Teachers", link: "/users/teachers" },
             { sublabel: "Parents", link: "/users/parents" },
             { sublabel: "Staff", link: "/users/staff" },

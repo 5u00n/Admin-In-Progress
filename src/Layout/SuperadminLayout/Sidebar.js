@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef,useState } from "react";
 import PropTypes from "prop-types";
 import sidebarData from "./SidebarData";
 //Simple bar
@@ -6,10 +6,25 @@ import SimpleBar from "simplebar-react";
 // MetisMenu
 import MetisMenu from "metismenujs";
 import withRouter from "../../components/Common/withRouter";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //i18n
 import { withTranslation } from "react-i18next";
 const Sidebar = (props) => {
+  const pathname = props.router.location.pathname.split("/")[1];
+  // console.log(pathname)
+ 
+   console.log("pathname", pathname);
+
+  const navigate = useNavigate();
+  const [activeLabel, setActiveLabel] = useState('inbox'); // State to track active label
+
+  const handleNavigation = (label) => {
+      setActiveLabel(label); // Update the active label state
+      // Navigate to the dynamic URL while preserving the state
+      navigate(`/${pathname}${label}`);
+  };
+ 
+  
   const ref = useRef();
   const activateParentDropdown = useCallback(item => {
     item.classList.add("active");
@@ -133,12 +148,14 @@ const Sidebar = (props) => {
                   ) : (
                     <li key={key}>
                       <Link
-                        to={item.url ? item.url : "/#"}
+                        to={item.url ?+item.url : "#"}
                         className={
                           (item.issubMenubadge || item.isHasArrow)
                             ? " "
                             : "has-arrow"
                         }
+
+                        onClick={() => item.url ?handleNavigation(item.url):null}
                       >
                         <i
                           className={item.icon}
@@ -161,11 +178,11 @@ const Sidebar = (props) => {
                           {item.subItem.map((item, key) => (
                             <li key={key}>
                               <Link
-                                to={item.link}
+                                to={+item.link}
                                 className={
                                   item.subMenu && "has-arrow waves-effect"
                                 }
-                              >
+                                onClick={() => handleNavigation(item.link)}>
                                 {props.t(item.sublabel)}
                               </Link>
                               {item.subMenu && (
