@@ -20,7 +20,7 @@ import {
 import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const UiOffcanvas = () => {
-    document.title = "Offcanvas | Edusofthub - React Admin & Dashboard Template";
+    document.title = "Offcanvas | Edusofthub ";
 
     const [open, setOpen] = useState(false);
     const [isTop, setIsTop] = useState(false);

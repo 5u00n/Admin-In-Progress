@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
 const animatedComponents = makeAnimated();
 
 const Offsymbol = () => {
-  document.title = "Form Advanced | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Form Advanced | Edusofthub ";
   return (
     <div
       style={{

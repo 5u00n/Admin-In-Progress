@@ -18,7 +18,7 @@ import { Card, CardBody, CardTitle, Col, Row, Container } from "reactstrap"
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 
 const ApexCharts = () => {
-    document.title = "Apex Charts | Edusofthub - React Admin & Dashboard Template";
+    document.title = "Apex Charts | Edusofthub ";
     return (
         <React.Fragment>
                 <div className="page-content">

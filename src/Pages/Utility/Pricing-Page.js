@@ -58,7 +58,7 @@ const PricingData = [
 ];
 
 const Pricing = () => {
-  document.title = "Pricing  | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Pricing  | Edusofthub ";
   return (
     <React.Fragment>
       <div className="page-content">

@@ -17,11 +17,12 @@ import { connect } from "react-redux";
 
 
 const Addminssion = ({ data, loading, error, fetchDataRequest }) => {
-  document.title = "Addmission | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Addmission | Edusofthub ";
 
   //console.log('Component Props:', { data, loading, error });
 
 
+  
 
   useEffect(() => {
     // Dispatch the action to fetch data when the component mounts

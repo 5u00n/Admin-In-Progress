@@ -14,7 +14,7 @@ var regularIcon = "";
 var logos = "";
 
 const IconBoxicons = (props) => {
-  document.title = "Boxicons | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Boxicons | Edusofthub ";
 
   useEffect(() => {
     icons.data.forEach(function (val) {

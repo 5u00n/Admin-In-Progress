@@ -6,7 +6,7 @@ import { Card, CardBody, CardTitle, Col, Container, Row } from "reactstrap";
 import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const UiTypography = () => {
-    document.title = "Typography | Edusofthub - React Admin & Dashboard Template";
+    document.title = "Typography | Edusofthub ";
 
     return (
         <React.Fragment>

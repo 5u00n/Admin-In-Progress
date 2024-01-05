@@ -19,7 +19,7 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const FormEditors = () => {
-  document.title = "Form Editors | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Form Editors | Edusofthub ";
   return (
     <React.Fragment>
         <div className="page-content">

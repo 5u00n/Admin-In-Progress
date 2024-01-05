@@ -38,7 +38,7 @@ const images = [img1, img2, img3, img4, img5, img6];
 const imageZoom = [img3, img7];
 
 const UiLightbox = () => {
-    document.title = "Lightbox | Edusofthub - React Admin & Dashboard Template";
+    document.title = "Lightbox | Edusofthub ";
 
     const [photoIndex, setphotoIndex] = useState(0);
     const [isFits, setisFits] = useState(false);

@@ -13,7 +13,7 @@ import {
 import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const UiProgressbar = () => {
-  document.title = "Progress Bars | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Progress Bars | Edusofthub ";
 
   return (
     <React.Fragment>

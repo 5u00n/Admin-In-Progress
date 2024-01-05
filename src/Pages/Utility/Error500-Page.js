@@ -3,7 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 
 const Error500 = () => {
-  document.title = "Error-500  | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Error-500  | Edusofthub ";
 
   return (
     <React.Fragment>

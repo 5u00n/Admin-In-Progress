@@ -31,7 +31,7 @@ import avatar from "../../assets/images/users/avatar-1.jpg";
 import { editProfile, resetProfileFlag } from "../../store/actions";
 
 const UserProfile = () => {
-  document.title = "Profile | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Profile | Edusofthub ";
 
   const dispatch = useDispatch();
 
@@ -77,6 +77,7 @@ const UserProfile = () => {
       username: Yup.string().required("Please Enter Your UserName"),
     }),
     onSubmit: (values) => {
+      console.log("Values : ",values);
       dispatch(editProfile(values));
     },
   });

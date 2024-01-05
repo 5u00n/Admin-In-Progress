@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getLoggedinUser, getUserRole } from "../helpers/api_helper";
-import { get } from "lodash";
+//import { get } from "lodash";
 
 const useProfile = () => {
   const userProfileSession = getLoggedinUser();
@@ -10,12 +10,12 @@ const useProfile = () => {
   );
 
   const usersRoleS = getUserRole();
+  const [usersRole] = useState(usersRoleS ? usersRoleS : "guest");
+  //console.log('From Hooks File UserProfile ', userProfileSession);
+  //console.log('From Hooks File UserRole ', usersRoleS);
 
-  //console.log("usersRoleS", usersRoleS);
-  const [userRole] = useState(usersRoleS ? usersRoleS : "null");
-  //console.log("usersRole", userRole);
-  return { userProfile, userRole, loading };
+
+  return { userProfile, usersRole, loading };
 };
-
 
 export { useProfile };

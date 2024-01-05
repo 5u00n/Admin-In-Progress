@@ -19,7 +19,7 @@ import {
 import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const UiDropdown = () => {
-  document.title = "Dropdowns | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Dropdowns | Edusofthub ";
 
   const [singlebtn, setSinglebtn] = useState(false);
   const [singlebtn1, setSinglebtn1] = useState(false);

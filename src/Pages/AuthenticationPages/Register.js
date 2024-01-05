@@ -7,7 +7,7 @@ import { Container, Row, Col, Card, CardBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
-    document.title = "Register | Edusofthub - React Admin & Dashboard Template";
+    document.title = "Register | Edusofthub ";
     return (
         <React.Fragment>
 

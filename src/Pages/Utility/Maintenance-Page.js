@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 
 const Maintenance = () => {
-    document.title = "Maintenance  | Edusofthub - React Admin & Dashboard Template";
+    document.title = "Maintenance  | Edusofthub ";
 
     return (
         <React.Fragment>

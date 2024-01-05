@@ -15,7 +15,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 
 const ChartJs = () => {
-    document.title = "Chartjs | Edusofthub - React Admin & Dashboard Template";
+    document.title = "Chartjs | Edusofthub ";
     return (
         <React.Fragment>
 

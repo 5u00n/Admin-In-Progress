@@ -9,7 +9,7 @@ import Rating from "react-rating";
 import RatingTooltip from "react-rating-tooltip";
 
 const UiRating = () => {
-  document.title = "Rating | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Rating | Edusofthub ";
 
   const [def, setdef] = useState("");
   const [stopRate, setStopRate] = useState("");

@@ -1,6 +1,7 @@
 import { PROFILE_ERROR, PROFILE_SUCCESS, EDIT_PROFILE, RESET_PROFILE_FLAG } from "./actionTypes";
 
 const initialState = {
+  user:null,
   error: "",
   success: "",
 };

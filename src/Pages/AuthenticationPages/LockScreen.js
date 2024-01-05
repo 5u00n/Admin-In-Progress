@@ -7,7 +7,7 @@ import { Container, Row, Col, Card, CardBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 const LockScreen = () => {
-    document.title = "Lock Screen | Edusofthub - React Admin & Dashboard Template";
+    document.title = "Lock Screen | Edusofthub ";
     return (
         <React.Fragment>
 

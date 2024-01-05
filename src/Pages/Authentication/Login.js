@@ -21,7 +21,7 @@ import { loginUser } from "../../store/actions";
 
 
 const Login = props => {
-  document.title = "Login | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Login | Edusofthub ";
 
   const dispatch = useDispatch();
 

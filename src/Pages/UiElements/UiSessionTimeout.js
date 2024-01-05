@@ -67,7 +67,7 @@ class UiSessionTimeout extends Component {
         this.setState({ timeralert: nextmsg() });
     }
     render() {
-        document.title = "Session Timeout | Edusofthub - React Admin & Dashboard Template";
+        document.title = "Session Timeout | Edusofthub ";
         return (
             <React.Fragment>
 

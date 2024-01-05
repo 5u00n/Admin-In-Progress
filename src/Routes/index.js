@@ -1,8 +1,8 @@
-import React from "react";
+import React ,{useState,useEffect}from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 // redux
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 //constants
 import { layoutTypes } from "../constants/layout";
@@ -15,9 +15,9 @@ import { AuthProtected } from "./AuthProtected";
 import { AuthProtectedSuperadmin } from "./AuthProtectedSuperadmin";
 
 
-import { authProtectedRoutes, publicRoutes,superadminRoutes } from "./routes";
+import { authProtectedRoutes, publicRoutes, superadminRoutes } from "./routes";
 import SuperadminLayout from "../Layout/SuperadminLayout/SuperadminLayout";
-import Staff from "../Pages/Users/OtherStaff";
+import { set } from "lodash";
 
 const getLayout = (layoutType) => {
   let Layout = VerticalLayout;
@@ -34,8 +34,6 @@ const getLayout = (layoutType) => {
   return Layout;
 };
 
-
-
 /*
 const ROLES = {
   'Superadmin': 2001,
@@ -46,16 +44,32 @@ const ROLES = {
 }
 */
 
-const Index = () => {
-  const { layoutType, userRole } = useSelector((state) => ({
+const Index = (props) => {
+
+  const dispatch = useDispatch();
+
+  const [authRole, setauthRole] = useState("");
+
+
+  useEffect(() => {
+    if (localStorage.getItem("authRole")) {
+      const obj = JSON.parse(localStorage.getItem("authRole"));
+      setauthRole(obj);
+      //console.log("Index obj", obj);
+
+    }
+  }, [dispatch]);
+
+  const { layoutType } = useSelector((state) => ({
     layoutType: state.Layout.layoutType,
-    userRole: state.login.userRole, // Assuming you have user role in your auth state
+    //userRole:state.login.userRole!==null?state.login.userRole: localStorage.getItem("authRole")
+    //userRole: state.login.userRole, // Assuming you have user role in your auth state
   }));
 
-  
-  const Layout = getLayout(layoutType);
+ // console.log("Index Props", props);
 
-  // Define default screens for different roles
+  // const [userRole, setUserRole] = React.useState("admin");
+  // const { userRole,setUserRole } = useSelector((state) => state.login);
   const defaultScreens = {
     superadmin: "/superadmin",
     admin: "/dashboard",
@@ -64,7 +78,14 @@ const Index = () => {
     user: "/dashboard",
   };
 
-  // Redirect to the default screen based on the user's role
+
+
+
+  console.log("Index userRole", authRole);
+  // console.log("Index userRole", userRole);
+
+  const Layout = getLayout(layoutType);
+
   const getDefaultScreen = (role) => {
     return defaultScreens[role] || "/";
   };
@@ -90,6 +111,7 @@ const Index = () => {
             </AuthProtectedSuperadmin>
           }
           key={idx}
+          exact={true}
         />
       ))}
 
@@ -103,13 +125,14 @@ const Index = () => {
             </AuthProtected>
           }
           key={idx}
+          exact={true}
         />
       ))}
 
       {/* Redirect based on role */}
       <Route
         path="/"
-        element={<Navigate to={getDefaultScreen(userRole)} replace />}
+        element={<Navigate to={getDefaultScreen(authRole)} replace />}
       />
     </Routes>
   );

@@ -19,7 +19,7 @@ import logo from "../../assets/images/logo-sm.png";
 //Import Breadcrumb
 import Breadcrumbs from "../../components/Common/Breadcrumb";
 const UiToasts = () => {
-  document.title = "Toast | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Toast | Edusofthub ";
 
   const [toast, settoast] = useState(false);
   const [toast1, settoast1] = useState(false);

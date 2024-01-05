@@ -28,19 +28,7 @@ const AddSchool1 = () => {
     }
 
 
-    const [modal_list_bulk, setmodal_list_bulk] = useState(false);
-    function tog_list_bulk() {
-        setmodal_list_bulk(!modal_list_bulk);
-    }
-    const [modal_delete, setmodal_delete] = useState(false);
-    function tog_delete() {
-        setmodal_delete(!modal_delete);
-    }
-
-    const [modal_bulk_delete, setmodal_bulk_delete] = useState(false);
-    function tog_bulk_delete() {
-        setmodal_delete(!modal_bulk_delete);
-    }
+ 
 
 
     const [step, setStep] = useState(1);
@@ -60,7 +48,7 @@ const AddSchool1 = () => {
                 <Container>
                     <Row className='mb-1'>
                         <div className='col-md-auto'>
-                            <Link to={"/"} ><i className="mdi mdi-close font-size-20 text-white " aria-hidden="true"></i></Link>
+                            <Link to={"/superadmin"} ><i className="mdi mdi-close font-size-20 text-white " aria-hidden="true"></i></Link>
 
                             <span className="mx-3 text-white font-size-20  "><b>Add School ( Step {step} of 3 )</b></span>
                         </div>
@@ -84,7 +72,7 @@ const AddSchool1 = () => {
                             </div>
 
                             <div className="mb-3">
-                                <label htmlFor="customername-field" className="form-label">Student Name</label>
+                                <label htmlFor="customername-field" className="form-label">Admin Name</label>
                                 <input type="text" id="customername-field" className="form-control" placeholder="Enter Name" required />
                             </div>
 

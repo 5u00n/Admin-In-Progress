@@ -263,7 +263,7 @@ const Calender = (props) => {
     }
   };
 
-  document.title = "Calendar | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Calendar | Edusofthub ";
   return (
     <React.Fragment>
       <DeleteModal

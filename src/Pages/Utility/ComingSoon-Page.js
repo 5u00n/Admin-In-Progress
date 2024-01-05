@@ -9,7 +9,7 @@ import Countdown from "react-countdown";
 import { Link } from "react-router-dom";
 
 const ComingSoon = () => {
-  document.title = "Cooming Soon  | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Cooming Soon  | Edusofthub ";
   // const renderer = ({ days, hours, minutes, seconds, completed }) => {
   //   if (completed) {
   //     // Render a completed state

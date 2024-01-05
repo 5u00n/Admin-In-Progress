@@ -124,6 +124,7 @@ const superadminRoutes =[
     //SuperAdmin
     { path: "/superadmin", component: <SuperAdmin /> },
     { path: "/add-school-1", component: <AddSchool1 /> },
+    { path: "/school/:school_short", component: <Dashboard/> },
     
 
 ];

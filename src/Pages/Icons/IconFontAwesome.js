@@ -14,7 +14,7 @@ var regular = "";
 var brand = "";
 
 const IconFontawesome = () => {
-  document.title = "Font Awesome Icons | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Font Awesome Icons | Edusofthub ";
 
   useEffect(() => {
     icons.data.forEach(function (val) {

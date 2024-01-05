@@ -61,7 +61,7 @@ const Header = (props) => {
         <div className="navbar-header">
           <div className="d-flex">
             <div className="navbar-brand-box text-center">
-              <Link to="/" className="logo logo-dark">
+              <Link to="/superadmin" className="logo logo-dark">
                 <span className="logo-sm">
                   <img src={logoSm} alt="logo-sm-dark" height="22" />
                 </span>
@@ -70,7 +70,7 @@ const Header = (props) => {
                 </span>
               </Link>
 
-              <Link to="/" className="logo logo-light">
+              <Link to="/superadmin" className="logo logo-light">
                 <span className="logo-sm">
                   <img src={logoSm} alt="logo-sm-light" height="22" />
                 </span>

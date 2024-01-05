@@ -22,7 +22,7 @@ import Slideinterval from "./CarouselTypes/slideinterval";
 import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const UiCarousel = () => {
-  document.title = "Carousel | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Carousel | Edusofthub ";
 
   return (
     <React.Fragment>

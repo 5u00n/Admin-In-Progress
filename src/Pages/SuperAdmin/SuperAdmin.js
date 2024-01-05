@@ -11,7 +11,7 @@ import { fetchDataRequest } from "../../store/database/actions";
 
 const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
 
-    
+
 
 
     useEffect(() => {
@@ -24,16 +24,16 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
     }, [fetchDataRequest]);
     var schools = [];
     if (loading) {
-       // console.log("Loading...");
+        // console.log("Loading...");
         //return <p>Loading...</p>;
-    } 
-    
+    }
+
     if (data != null) {
 
         schools = data.schools;
-       // console.log("School :", typeof schools);
+        // console.log("School :", typeof schools);
 
-       
+
 
         //console.log("tifOptions :", tifOptions);
     }
@@ -72,49 +72,55 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
                     <Row>
                         <Col className="col-sm-auto" >
                             <Card className="text-center" style={{
-                                minHeight: '19rem',
-                                minWidth: '19rem',
-                                maxWidth: '19rem',
+                                minHeight: '12rem',
+                                minWidth: '12rem',
+                                maxWidth: '12rem',
                             }}>
 
                                 <Link to="/add-school-1" className="card-link" style={{
-                                    width: '100%', height: '100%', padding: '6rem 5rem'
+                                    width: '100%', height: '100%', padding: '3.5rem 2rem'
                                 }}>
 
-                                    <h2 ><b><i className="mdi mdi-plus color-white"></i> <br></br>Add New School</b></h2>
+                                    <h5><b><i className="mdi mdi-plus color-white"></i> <br></br>Add New School</b></h5>
                                 </Link>
                             </Card>
                         </Col>
 
                         {Object.keys(schools).map(key => (
                             <Col className="col-sm-auto" key={key}>
-                                <Link to={ "/"+schools[key].school_short} >
-                                <Card style={{
-                                    minHeight: '19rem',
-                                    minWidth: '19rem',
-                                    maxWidth: '25rem',
-                                }}>
-                                    <CardBody className=" center bg-white bg-light" style={{
-                                        height: '12rem',
-                                        padding: '1rem',}}>
-                                    <CardImg className="img-fluid center bg-white bg-light" src={schools[key].school_logo} style={{ 
-                                        height: '100%',
-                                        alignSelf: 'center',
-                                        objectFit: 'scale-down',
-                                    }} />
-                                    </CardBody>
-                                    <CardBody>
-                                        <CardTitle className="mt-0" tag="h2">{schools[key].school_name}</CardTitle>
-                                        <CardSubtitle className="font-14 text-muted mb-2">
-                                            {schools[key].school_address}</CardSubtitle>
-                                        <Link to="#" className="card-link">
-                                            <span className="text-white"><i className="mdi mdi-pencil" aria-hidden="true"></i>Edit</span>
-                                        </Link>
-                                        <Link to="#" className="card-link">
-                                            <span className="text-danger "><i className="mdi mdi-delete" aria-hidden="true"></i> Delete</span>
-                                        </Link>
-                                    </CardBody>
-                                </Card>
+                                <Link to={"/school/" + schools[key].school_short} >
+                                    <Card style={{
+                                        minHeight: '12rem',
+                                        minWidth: '12rem',
+                                        maxWidth: '12rem',
+                                    }}>
+                                        <CardBody className=" center" style={{
+                                            height: '6rem',
+                                            padding: '0'
+                                        }}>
+                                            <Card className="bg-white" style={{
+                                            height: '7rem',
+                                            padding: '1rem',
+                                        }}>
+                                                <CardImg className="img-fluid center " src={schools[key].school_logo} style={{
+                                                    height: '100%',
+                                                    alignSelf: 'center',
+                                                    objectFit: 'scale-down',
+                                                }} />
+                                            </Card>
+                                        </CardBody>
+                                        <CardBody className="m-0 py-1 mt-1">
+                                            <CardTitle className="mt-0 font-size-11 text-black" >{schools[key].school_name}</CardTitle>
+                                            <CardSubtitle className="font-size-10 text-muted ">
+                                                {schools[key].school_address}</CardSubtitle>
+                                            <span to="#" className="card-link">
+                                                <span className="text-white font-size-11 "><i className="mdi mdi-pencil" aria-hidden="true"></i>Edit</span>
+                                            </span>
+                                            <span className="card-link">
+                                                <span className="text-danger font-size-11"><i className="mdi mdi-delete" aria-hidden="true"></i> Delete</span>
+                                            </span>
+                                        </CardBody>
+                                    </Card>
                                 </Link>
                             </Col>
                         ))}

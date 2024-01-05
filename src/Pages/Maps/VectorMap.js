@@ -7,7 +7,7 @@ import Vector from './MapVector';
 import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const VectorMaps = () => {
-    document.title = "Vector Maps | Edusofthub - React Admin & Dashboard Template";
+    document.title = "Vector Maps | Edusofthub ";
 
     return (
         <React.Fragment>

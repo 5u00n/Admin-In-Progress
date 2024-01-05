@@ -7,7 +7,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 
 const StarterPage = () => {
-    document.title = "Starter  | Edusofthub - React Admin & Dashboard Template";
+    document.title = "Starter  | Edusofthub ";
 
     return (
         <React.Fragment>

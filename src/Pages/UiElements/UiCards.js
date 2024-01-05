@@ -40,7 +40,7 @@ const UiCards = () => {
     700: 2,
     500: 1
   };
-  document.title = "Cards | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Cards | Edusofthub ";
 
   return (
     <React.Fragment>

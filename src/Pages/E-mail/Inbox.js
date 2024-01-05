@@ -25,7 +25,7 @@ import InboxSidebar from "./Sidebar";
 import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const Inbox = () => {
-  document.title = "Inbox  | Edusofthub - React Admin & Dashboard Template";
+  document.title = "Inbox  | Edusofthub ";
 
   const [customActiveTab, setcustomActiveTab] = useState("1");
 
