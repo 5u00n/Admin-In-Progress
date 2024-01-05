@@ -70,7 +70,7 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
                     </Row>
 
                     <Row className="mx-5">
-                        <Col className="col-lg-auto col-sm-6" >
+                        <Col className="col-lg-auto col-md-auto col-sm-6" >
                             <Card className="text-center" style={{
                                 minHeight: '12rem',
                                 minWidth: '12rem',
@@ -87,8 +87,8 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
                         </Col>
 
                         {Object.keys(schools).map(key => (
-                            <Col className="col-lg-auto col-sm-6" key={key}>
-                                <Link to={"/school/" + schools[key].school_short} >
+                            <Col className="col-lg-auto col-md-auto col-sm-6" key={key}>
+                                <Link to={"/" + schools[key].school_short} >
                                     <Card style={{
                                         minHeight: '12rem',
                                         minWidth: '12rem',

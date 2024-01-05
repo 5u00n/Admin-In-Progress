@@ -2,31 +2,57 @@ import React, { useEffect, useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import withRouter from "../../components/Common/withRouter";
 
-//actions
 import {
   changeLayout,
+  changeSidebarTheme,
+  changeSidebarType,
   changeTopbarTheme,
   changeLayoutWidth,
-  showRightSidebarAction,
+  showRightSidebarAction
 } from "../../store/actions";
 
 //redux
 import { useSelector, useDispatch } from "react-redux";
 
-//components
-
-import Header from "./Header";
-import Footer from "./Footer";
+// import Components
+import Sidebar from './Sidebar';
+import Header from './Header';
+import Footer from './Footer';
+import RightSidebar from '../../components/Common/RightSideBar';
 
 const Layout = (props) => {
+
+
+  const pathname = props.router.location.pathname;
+
+  console.log("pathname", pathname);
   const dispatch = useDispatch();
 
-  const { topbarTheme, layoutWidth } =
-    useSelector((state) => ({
-      topbarTheme: state.Layout.topbarTheme,
-      layoutWidth: state.Layout.layoutWidth,
-      showRightSidebar: state.Layout.showRightSidebar,
-    }));
+  const {
+    layoutWidth,
+    leftSideBarType,
+    topbarTheme,
+    showRightSidebar,
+    leftSideBarTheme,
+  } = useSelector(state => ({
+    leftSideBarType: state.Layout.leftSideBarType,
+    layoutWidth: state.Layout.layoutWidth,
+    topbarTheme: state.Layout.topbarTheme,
+    showRightSidebar: state.Layout.showRightSidebar,
+    leftSideBarTheme: state.Layout.leftSideBarTheme,
+  }));
+
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  const toggleMenuCallback = () => {
+    if (leftSideBarType === "default") {
+      dispatch(changeSidebarType("condensed", isMobile));
+    } else if (leftSideBarType === "condensed") {
+      dispatch(changeSidebarType("default", isMobile));
+    }
+  };
+
+
 
   /*
   document title
@@ -60,39 +86,59 @@ const Layout = (props) => {
   /*
   layout settings
   */
-  useEffect(() => {
-    dispatch(changeLayout("vertical"));
-  }, [dispatch]);
 
+  
   useEffect(() => {
     //init body click event fot toggle rightbar
     document.body.addEventListener("click", hideRightbar, true);
   }, [hideRightbar]);
 
   useEffect(() => {
-    if (topbarTheme) {
-      dispatch(changeTopbarTheme(topbarTheme));
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    dispatch(changeLayout("vertical"));
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (leftSideBarTheme) {
+      dispatch(changeSidebarTheme(leftSideBarTheme));
     }
-  }, [dispatch, topbarTheme]);
+  }, [leftSideBarTheme, dispatch]);
 
   useEffect(() => {
     if (layoutWidth) {
       dispatch(changeLayoutWidth(layoutWidth));
     }
-  }, [dispatch, layoutWidth]);
+  }, [layoutWidth, dispatch]);
 
-  
+  useEffect(() => {
+    if (leftSideBarType) {
+      dispatch(changeSidebarType(leftSideBarType));
+    }
+  }, [leftSideBarType, dispatch]);
+
+  useEffect(() => {
+    if (topbarTheme) {
+      dispatch(changeTopbarTheme(topbarTheme));
+    }
+  }, [topbarTheme, dispatch]);
   return (
     <React.Fragment>
 
-<div id="layout-wrapper">
-        <Header  />
-        
-        <div className="py-5">{props.children}</div>
+      <div id="layout-wrapper">
+        <Header toggleMenuCallback={toggleMenuCallback} />
+        {pathname !== "/superadmin" ? pathname !== "/add-school-1" ? <Sidebar
+          theme={leftSideBarTheme}
+          type={leftSideBarType}
+          isMobile={isMobile}
+        /> : null : null}
+        <div className={pathname === "/superadmin" ? pathname === "/add-school-1" ? "py-5" : "main-content" : "main-content"}>{props.children}</div>
         <Footer />
       </div>
 
-     
+      {showRightSidebar ? <RightSidebar /> : null}
     </React.Fragment>
   );
 };

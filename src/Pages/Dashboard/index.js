@@ -11,9 +11,27 @@ import { Row, Container } from "reactstrap";
 
 //Import Breadcrumb
 import Breadcrumbs from "../../components/Common/Breadcrumb";
+import { useEffect } from "react";
 
 const Dashboard = () => {
   document.title = "Dashboard | Edusofthub ";
+
+
+  useEffect(() => {
+   /* if (localStorage.getItem("authUser")) {
+      const obj = JSON.parse(localStorage.getItem("authUser"));
+      if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
+        setemail(obj.email);
+        setname(obj.name);
+        setidx(obj.idx);
+      } else {
+        setemail(obj.email);
+        setname(obj.name);
+        setidx(obj.idx);
+      }
+    }*/
+      document.body.className = "bg-pattern";
+  }, []);
   return (
     <React.Fragment>
       <div className="page-content">

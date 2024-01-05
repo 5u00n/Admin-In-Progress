@@ -53,6 +53,15 @@ const Header = (props) => {
     }
   }
 
+  function tToggle() {
+    var body = document.body;
+    if (window.screen.width <= 998) {
+      body.classList.toggle("sidebar-enable");
+    } else {
+      body.classList.toggle("vertical-collpsed");
+      body.classList.toggle("sidebar-enable");
+    }
+  }
   
 
   return (
@@ -80,7 +89,27 @@ const Header = (props) => {
               </Link>
             </div>
 
-           
+            <button
+              type="button"
+              className="btn btn-sm px-3 font-size-24 header-item waves-effect"
+              id="vertical-menu-btn"
+              onClick={() => {
+                tToggle();
+              }}
+            >
+              <i className="ri-menu-2-line align-middle"></i>
+            </button>
+
+            <form className="app-search d-none d-lg-block">
+              <div className="position-relative">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Search..."
+                />
+                <span className="ri-search-line"></span>
+              </div>
+            </form>
             
           </div>
 
@@ -144,6 +173,19 @@ const Header = (props) => {
 
             <ProfileMenu />
 
+            <div
+              className="dropdown d-inline-block"
+              onClick={() => {
+                props.showRightSidebarAction(!props.showRightSidebar);
+              }}
+            >
+              <button
+                type="button"
+                className="btn header-item noti-icon right-bar-toggle waves-effect"
+              >
+                <i className="mdi mdi-cog"></i>
+              </button>
+            </div>
            
           </div>
         </div>
