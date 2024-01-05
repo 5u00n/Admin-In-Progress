@@ -17,7 +17,7 @@ import { AuthProtectedSuperadmin } from "./AuthProtectedSuperadmin";
 
 import { authProtectedRoutes, publicRoutes, superadminRoutes } from "./routes";
 import SuperadminLayout from "../Layout/SuperadminLayout/SuperadminLayout";
-import { set } from "lodash";
+
 
 const getLayout = (layoutType) => {
   let Layout = VerticalLayout;
@@ -81,7 +81,7 @@ const Index = (props) => {
 
 
 
-  console.log("Index userRole", authRole);
+  ///console.log("Index userRole", authRole);
   // console.log("Index userRole", userRole);
 
   const Layout = getLayout(layoutType);
