@@ -5,7 +5,7 @@ const FormOne = ({ next }) => {
     return (
         <Row>
                         <Col md={6}>
-                            <form className='mt-3 py-5 px-3 text-white'>
+                            <form className='mt-2 py-2 px-3 text-white'>
                             <Row className="flex-column">
                                     <Col lg={8}>
                                         <div className="form-floating mb-3">
@@ -106,7 +106,7 @@ const FormOne = ({ next }) => {
                                         </div>
                                     </Col>
                                 </Row>
-                                <Row className='mb-5'>
+                                <Row className='mb-2'>
                                     <Col md={5}>
                                         <div className="form-floating mb-3">
                                             <input

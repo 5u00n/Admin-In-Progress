@@ -6,9 +6,13 @@ import {
   API_ERROR,
 } from "./actionTypes";
 
+// src/store/auth/reducer.js
+import { ROLES } from '../../../constants/roles';
+
 const initialState = {
   error: "",
   loading: false,
+  userRole: null,
 };
 
 const login = (state = initialState, action) => {
@@ -23,7 +27,7 @@ const login = (state = initialState, action) => {
       state = {
         ...state,
         loading: false,
-        userType: action.payload.user.userType,
+        userRole: action.payload.userRole,
       };
       break;
     case LOGOUT_USER:

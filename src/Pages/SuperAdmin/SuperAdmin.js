@@ -54,7 +54,7 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
 
         <React.Fragment>
             <div className="bg-overlay"></div>
-            <div className="account-page my-5 pt-5">
+            <div className="account-page pt-2">
                 <Container>
 
                     <Row>

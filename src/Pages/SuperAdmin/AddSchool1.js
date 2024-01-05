@@ -58,7 +58,7 @@ const AddSchool1 = () => {
             <div className="bg-overlay"></div>
             <div className="acoount-content my-5 mt-5">
                 <Container>
-                    <Row className='mb-3'>
+                    <Row className='mb-1'>
                         <div className='col-md-auto'>
                             <Link to={"/"} ><i className="mdi mdi-close font-size-20 text-white " aria-hidden="true"></i></Link>
 

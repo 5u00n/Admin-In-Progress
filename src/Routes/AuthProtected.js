@@ -4,7 +4,7 @@ import { Navigate, Route } from "react-router-dom";
 import { useProfile } from "../Hooks/UserHooks";
 
 const AuthProtected = (props) => {
-  const { userProfile, loading } = useProfile();
+  const { userProfile,userRole, loading } = useProfile();
 
   //console.log("AuthProtected", userProfile.uid, loading);
 
@@ -17,6 +17,11 @@ const AuthProtected = (props) => {
     return (
       <Navigate to={{ pathname: "/login", state: { from: props.location } }} />
     );
+  
+} else if (!userProfile || userRole !== 'admin') {
+  //if (allowedRoles && !allowedRoles.includes(userProfile.role)) {
+    // Redirect to a "not authorized" page if the user's role is not allowed
+    return <Navigate to="/pages-404" />;
   }
 
   return <>{props.children}</>;

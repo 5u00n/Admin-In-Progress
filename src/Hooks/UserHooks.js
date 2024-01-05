@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { getLoggedinUser } from "../helpers/api_helper";
+import { getLoggedinUser, getUserRole } from "../helpers/api_helper";
+import { get } from "lodash";
 
 const useProfile = () => {
   const userProfileSession = getLoggedinUser();
@@ -8,7 +9,13 @@ const useProfile = () => {
     userProfileSession ? userProfileSession : null
   );
 
-  return { userProfile, loading };
+  const usersRoleS = getUserRole();
+
+  //console.log("usersRoleS", usersRoleS);
+  const [userRole] = useState(usersRoleS ? usersRoleS : "null");
+  //console.log("usersRole", userRole);
+  return { userProfile, userRole, loading };
 };
+
 
 export { useProfile };

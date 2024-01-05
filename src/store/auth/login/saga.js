@@ -21,10 +21,11 @@ function* loginUser({ payload: { user, history } }) {
         user.email,
         user.password
       );
-      //console.log("firebase response :+", response.uid);
+      console.log("firebase response :+", response.uid);
       usertype = yield call(getFirebaseBackend().fetchDataOnce, "users/" + response.uid + "/type");
       console.log("firebase response :+", usertype);
-      yield put(loginSuccess(response));
+      localStorage.setItem("authRole", JSON.stringify(usertype));
+      yield put(loginSuccess(response, usertype));
     }
     if (usertype === "admin") {
       history("/dashboard");

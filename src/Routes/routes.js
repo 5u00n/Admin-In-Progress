@@ -124,11 +124,7 @@ const superadminRoutes =[
     //SuperAdmin
     { path: "/superadmin", component: <SuperAdmin /> },
     { path: "/add-school-1", component: <AddSchool1 /> },
-    {
-      path: "/",
-      exact: true,
-      component: <Navigate to="/superadmin" />,
-    },
+    
 
 ];
 
@@ -233,11 +229,11 @@ const authProtectedRoutes = [
 
   // this route should be at the end of all other routes
   // eslint-disable-next-line react/display-name
-  {
-    path: "/",
-    exact: true,
-    component: <Navigate to="/dashboard" />,
-  },
+  //{
+   // path: "/",
+   // exact: true,
+   // component: <Navigate to="/dashboard" />,
+ // },
 ];
 
 

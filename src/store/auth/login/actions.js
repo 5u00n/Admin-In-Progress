@@ -5,7 +5,9 @@ import {
   LOGOUT_USER_SUCCESS,
   API_ERROR,
   SOCIAL_LOGIN,
-} from "./actionTypes"
+} from "./actionTypes";
+
+//import { ROLES } from '../../../constants/roles';
 
 export const loginUser = (user, history) => {
   return {
@@ -14,10 +16,11 @@ export const loginUser = (user, history) => {
   }
 }
 
-export const loginSuccess = (user,usersData) => {
+export const loginSuccess = (user,userRole) => {
+  console.log("loginSuccess",user,userRole);
   return {
     type: LOGIN_SUCCESS,
-    payload: {user,usersData},
+    payload: {user,userRole},
   }
 }
 

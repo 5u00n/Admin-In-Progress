@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 // redux
 import { useSelector } from "react-redux";
@@ -17,6 +17,7 @@ import { AuthProtectedSuperadmin } from "./AuthProtectedSuperadmin";
 
 import { authProtectedRoutes, publicRoutes,superadminRoutes } from "./routes";
 import SuperadminLayout from "../Layout/SuperadminLayout/SuperadminLayout";
+import Staff from "../Pages/Users/OtherStaff";
 
 const getLayout = (layoutType) => {
   let Layout = VerticalLayout;
@@ -33,6 +34,8 @@ const getLayout = (layoutType) => {
   return Layout;
 };
 
+
+
 /*
 const ROLES = {
   'Superadmin': 2001,
@@ -44,57 +47,70 @@ const ROLES = {
 */
 
 const Index = () => {
-
-  const { layoutType } = useSelector((state) => ({
+  const { layoutType, userRole } = useSelector((state) => ({
     layoutType: state.Layout.layoutType,
+    userRole: state.login.userRole, // Assuming you have user role in your auth state
   }));
 
+  
   const Layout = getLayout(layoutType);
+
+  // Define default screens for different roles
+  const defaultScreens = {
+    superadmin: "/superadmin",
+    admin: "/dashboard",
+    teacher: "/dashboard",
+    staff: "/dashboard",
+    user: "/dashboard",
+  };
+
+  // Redirect to the default screen based on the user's role
+  const getDefaultScreen = (role) => {
+    return defaultScreens[role] || "/";
+  };
 
   return (
     <Routes>
-      <Route>
-        {publicRoutes.map((route, idx) => (
-          <Route
-            path={route.path}
-            element={
-              <NonAuthLayout>
-                  {route.component}
-              </NonAuthLayout>
-          }
-            key={idx}
-            exact={true}
-          />
-        ))}
-      </Route>
+      {/* Public Routes */}
+      {publicRoutes.map((route, idx) => (
+        <Route
+          path={route.path}
+          element={<NonAuthLayout>{route.component}</NonAuthLayout>}
+          key={idx}
+        />
+      ))}
 
-      <Route  >
-        {superadminRoutes.map((route,idx)=>(
-          <Route
+      {/* Superadmin Routes */}
+      {superadminRoutes.map((route, idx) => (
+        <Route
           path={route.path}
           element={
             <AuthProtectedSuperadmin>
-                <SuperadminLayout>{route.component}</SuperadminLayout>
-            </AuthProtectedSuperadmin>} 
-            key={idx}
-            exact={true}
-            />
-        ))}
-      </Route>
+              <SuperadminLayout>{route.component}</SuperadminLayout>
+            </AuthProtectedSuperadmin>
+          }
+          key={idx}
+        />
+      ))}
 
-      <Route>
-          {authProtectedRoutes.map((route, idx) => (
-            <Route
-              path={route.path}
-              element={
-                <AuthProtected>
-                    <Layout>{route.component}</Layout>
-                </AuthProtected>}
-              key={idx}
-              exact={true}
-            />
-          ))}
-      </Route>
+      {/* Auth Protected Routes */}
+      {authProtectedRoutes.map((route, idx) => (
+        <Route
+          path={route.path}
+          element={
+            <AuthProtected>
+              <Layout>{route.component}</Layout>
+            </AuthProtected>
+          }
+          key={idx}
+        />
+      ))}
+
+      {/* Redirect based on role */}
+      <Route
+        path="/"
+        element={<Navigate to={getDefaultScreen(userRole)} replace />}
+      />
     </Routes>
   );
 };
