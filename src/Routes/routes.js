@@ -125,45 +125,82 @@ const superadminRoutes =[
     { path: "/superadmin", component: <SuperAdmin /> },
     { path: "/add-school-1", component: <AddSchool1 /> },
     { path: "/:school_short/dashboard", component: <Dashboard/> },
+
+    { path: "/:school_short", component: <Dashboard/> },
+  
+    //Dashboard Users
+    { path: "/:school_short/users/:students", component: <Students /> },
+  
+    //Users
+    { path: "/:school_short/users/students", component: <Students /> },
+    { path: "/:school_short/users/parents", component: <Parents /> },
+    { path: "/:school_short/users/teachers", component: <Teachers /> },
+    { path: "/:school_short/users/staff", component: <Staff /> },
+    { path: "/:school_short/users/admin", component: <Admin /> },
+    { path: "/:school_short/users/addmission", component: <Addmission /> },
+  
+    //Acadamics
+    { path: "/:school_short/acadamics/class", component: <Class/> },
+    { path: "/:school_short/acadamics/classroom", component: <Classroom/> },
+    { path: "/:school_short/acadamics/subject", component: <Subject/> },
+    { path: "/:school_short/acadamics/syllabus", component: <Syllabus/> },
+    { path: "/:school_short/acadamics/department", component: <Deparment/>},
+    { path: "/:school_short/acadamics/daily-attendance", component: <DailyAttendance/>},
+    { path: "/:school_short/acadamics/class-routine", component: <ClassRoutine/>},
+    { path: "/:school_short/acadamics/event-calendar", component: <EventsCalendar/>},
+  
+  
+    // Calender
+    { path: "/:school_short/acadamics/calendar", component: <Calender /> },
+  
+    // Profile
+    { path: "/:school_short/userprofile", component: <UserProfile /> },
+  
+    // E-mail
+    { path: "/:school_short/inbox", component: <Inbox /> },
+    { path: "/:school_short/read-email", component: <ReadEmail /> },
+    { path: "/:school_short/compose-email", component: <EmailCompose /> },
     
 
 ];
 
 const authProtectedRoutes = [
-  //dashboard
-  { path: "/dashboard", component: <Dashboard /> },
+  { path: "/:school_short/dashboard", component: <Dashboard/> },
 
+  { path: "/:school_short", component: <Dashboard/> },
 
+  //Dashboard Users
+  { path: "/:school_short/users/:students", component: <Students /> },
 
   //Users
-  { path: "/users/students", component: <Students /> },
-  { path: "/users/parents", component: <Parents /> },
-  { path: "/users/teachers", component: <Teachers /> },
-  { path: "/users/staff", component: <Staff /> },
-  { path: "/users/admin", component: <Admin /> },
-  { path: "/users/addmission", component: <Addmission /> },
+  { path: "/:school_short/users/students", component: <Students /> },
+  { path: "/:school_short/users/parents", component: <Parents /> },
+  { path: "/:school_short/users/teachers", component: <Teachers /> },
+  { path: "/:school_short/users/staff", component: <Staff /> },
+  { path: "/:school_short/users/admin", component: <Admin /> },
+  { path: "/:school_short/users/addmission", component: <Addmission /> },
 
   //Acadamics
-  { path: "/acadamics/class", component: <Class/> },
-  { path: "/acadamics/classroom", component: <Classroom/> },
-  { path: "/acadamics/subject", component: <Subject/> },
-  { path: "/acadamics/syllabus", component: <Syllabus/> },
-  { path: "/acadamics/department", component: <Deparment/>},
-  { path: "/acadamics/daily-attendance", component: <DailyAttendance/>},
-  { path: "/acadamics/class-routine", component: <ClassRoutine/>},
-  { path: "/acadamics/event-calendar", component: <EventsCalendar/>},
+  { path: "/:school_short/acadamics/class", component: <Class/> },
+  { path: "/:school_short/acadamics/classroom", component: <Classroom/> },
+  { path: "/:school_short/acadamics/subject", component: <Subject/> },
+  { path: "/:school_short/acadamics/syllabus", component: <Syllabus/> },
+  { path: "/:school_short/acadamics/department", component: <Deparment/>},
+  { path: "/:school_short/acadamics/daily-attendance", component: <DailyAttendance/>},
+  { path: "/:school_short/acadamics/class-routine", component: <ClassRoutine/>},
+  { path: "/:school_short/acadamics/event-calendar", component: <EventsCalendar/>},
 
 
   // Calender
-  { path: "/acadamics/calendar", component: <Calender /> },
+  { path: "/:school_short/acadamics/calendar", component: <Calender /> },
 
   // Profile
-  { path: "/userprofile", component: <UserProfile /> },
+  { path: "/:school_short/userprofile", component: <UserProfile /> },
 
   // E-mail
-  { path: "/inbox", component: <Inbox /> },
-  { path: "/read-email", component: <ReadEmail /> },
-  { path: "/compose-email", component: <EmailCompose /> },
+  { path: "/:school_short/inbox", component: <Inbox /> },
+  { path: "/:school_short/read-email", component: <ReadEmail /> },
+  { path: "/:school_short/compose-email", component: <EmailCompose /> },
 
   // Utility Pages
   { path: "/pages-starter", component: <StarterPage /> },
