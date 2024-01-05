@@ -55,7 +55,7 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
         <React.Fragment>
             <div className="bg-overlay"></div>
             <div className="account-page pt-2">
-                <Container>
+                <Container fluid>
 
                     <Row>
                         <Col className='mt-4 mb-4' lg={8} >
@@ -63,18 +63,18 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
 
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className="mx-5">
                         <Col className='mb-4'>
                             <p className="text-white">Lorem ipsum dolor sit amet consectetur. Quisque elit viverra velit vel amet.</p>
                         </Col>
                     </Row>
 
-                    <Row>
-                        <Col className="col-sm-auto" >
+                    <Row className="mx-5">
+                        <Col className="col-lg-auto col-sm-6" >
                             <Card className="text-center" style={{
                                 minHeight: '12rem',
                                 minWidth: '12rem',
-                                maxWidth: '12rem',
+                                maxWidth: '19rem',
                             }}>
 
                                 <Link to="/add-school-1" className="card-link" style={{
@@ -87,12 +87,12 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
                         </Col>
 
                         {Object.keys(schools).map(key => (
-                            <Col className="col-sm-auto" key={key}>
+                            <Col className="col-lg-auto col-sm-6" key={key}>
                                 <Link to={"/school/" + schools[key].school_short} >
                                     <Card style={{
                                         minHeight: '12rem',
                                         minWidth: '12rem',
-                                        maxWidth: '12rem',
+                                        maxWidth: '19rem',
                                     }}>
                                         <CardBody className=" center" style={{
                                             height: '6rem',
