@@ -31,23 +31,12 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
     if (data != null) {
 
         schools = data.schools;
-        // console.log("School :", typeof schools);
-
-
-
-        //console.log("tifOptions :", tifOptions);
     }
 
     if (error) {
         //return <p>Error: {error}</p>;
         console.log("Error:", error);
     }
-    //console.log("from Addmission page " + data);
-
-
-    // const id = data.id;
-    //const schoolLogo = data.school_logo;
-
 
 
     return (
@@ -77,7 +66,7 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
                                 maxWidth: '19rem',
                             }}>
 
-                                <Link to="/add-school-1" className="card-link" style={{
+                                <Link to="/superadmin/add-school-1" className="card-link" style={{
                                     width: '100%', height: '100%', padding: '3.5rem 2rem'
                                 }}>
 

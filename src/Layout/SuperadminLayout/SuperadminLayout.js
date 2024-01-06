@@ -23,7 +23,7 @@ import RightSidebar from '../../components/Common/RightSideBar';
 const Layout = (props) => {
 
 
-  const pathname = props.router.location.pathname;
+  const pathname = props.router.location.pathname.split("/")[1];
 
   //console.log("pathname", pathname);
   const dispatch = useDispatch();
@@ -129,12 +129,12 @@ const Layout = (props) => {
 
       <div id="layout-wrapper">
         <Header toggleMenuCallback={toggleMenuCallback} />
-        {pathname !== "/superadmin" ? pathname !== "/add-school-1" ? <Sidebar
+        {pathname !== "superadmin" ? pathname !== "/add-school-1" ? <Sidebar
           theme={leftSideBarTheme}
           type={leftSideBarType}
           isMobile={isMobile}
         /> : null : null}
-        <div className={pathname === "/superadmin" ? pathname === "/add-school-1" ? "py-5" : "py-5" : "main-content"}>{props.children}</div>
+        <div className={pathname === "superadmin" ? pathname === "/add-school-1" ? "py-5" : "py-5" : "main-content"}>{props.children}</div>
         <Footer />
       </div>
 

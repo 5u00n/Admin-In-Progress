@@ -4,7 +4,7 @@ import { Navigate, Route } from "react-router-dom";
 import { useProfile } from "../Hooks/UserHooks";
 
 const AuthProtected = (props) => {
-  const { userProfile, loading } = useProfile();
+  const { userProfile,usersRole, loading } = useProfile();
 
   //console.log("AuthProtected", userProfile.uid, loading);
 
@@ -17,6 +17,8 @@ const AuthProtected = (props) => {
     return (
       <Navigate to={{ pathname: "/login", state: { from: props.location } }} />
     );
+  }else if(usersRole !== "admin"){
+
   }
 
   return <>{props.children}</>;

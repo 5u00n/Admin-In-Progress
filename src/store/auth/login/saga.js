@@ -21,9 +21,12 @@ function* loginUser({ payload: { user, history } }) {
         user.email,
         user.password
       );
-      console.log("firebase response :+", response.uid);
-      usertype = yield call(getFirebaseBackend().fetchDataOnce, "users/" + response.uid + "/type");
-      console.log("firebase response :+", usertype);
+      //console.log("firebase response :+", response.uid);
+      const usersData = yield call(getFirebaseBackend().fetchDataOnce, "users/" + response.uid );
+      localStorage.setItem("authData", JSON.stringify(usersData));
+      console.log("firebase response :+", usersData);
+      usertype = usersData.type;
+      //console.log("firebase response TYPE : ", usertype);
       localStorage.setItem("authRole", JSON.stringify(usertype));
       yield put(loginSuccess(response, usertype));
     }

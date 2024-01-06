@@ -1,10 +1,15 @@
-import React, { useState } from "react";
-
+import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import withRouter from "../../components/Common/withRouter";
 
-import LanguageDropdown from "../../components/Common/TopbarDropdown/LanguageDropdown";
-import NotificationDropdown from "../../components/Common/TopbarDropdown/NotificationDropdown";
+
+
+
+
+//import LanguageDropdown from "../../components/Common/TopbarDropdown/LanguageDropdown";
+//import NotificationDropdown from "../../components/Common/TopbarDropdown/NotificationDropdown";
 
 //i18n
 import { withTranslation } from "react-i18next";
@@ -21,10 +26,20 @@ import {
   changeSidebarType,
 } from "../../store/actions";
 import ProfileMenu from "../../components/Common/TopbarDropdown/ProfileMenu";
-import AppsDropdown from "../../components/Common/TopbarDropdown/AppsDropdown";
+//import AppsDropdown from "../../components/Common/TopbarDropdown/AppsDropdown";
 
 const Header = (props) => {
-  const [search, setsearch] = useState(false);
+
+
+  /**
+   * 
+   *Geting data of header from redux store Firebase
+   * 
+   */
+
+   const pathname = props.router.location.pathname;
+
+  //const [search, setsearch] = useState(false);
 
   function toggleFullscreen() {
     if (
@@ -100,7 +115,7 @@ const Header = (props) => {
               <i className="ri-menu-2-line align-middle"></i>
             </button>
 
-            <form className="app-search d-none d-lg-block">
+            {/*<form className="app-search d-none d-lg-block">
               <div className="position-relative">
                 <input
                   type="text"
@@ -110,11 +125,12 @@ const Header = (props) => {
                 <span className="ri-search-line"></span>
               </div>
             </form>
+            */}
             
           </div>
 
           <div className="d-flex">
-            <div className="dropdown d-inline-block d-lg-none ms-2">
+           {/* <div className="dropdown d-inline-block d-lg-none ms-2">
               <button
                 onClick={() => {
                   setsearch(!search);
@@ -169,11 +185,11 @@ const Header = (props) => {
               </button>
             </div>
 
-            <NotificationDropdown />
+              <NotificationDropdown />*/}
 
             <ProfileMenu />
 
-            <div
+            {pathname !== "/superadmin" ? pathname !== "/add-school-1" ?<div
               className="dropdown d-inline-block"
               onClick={() => {
                 props.showRightSidebarAction(!props.showRightSidebar);
@@ -185,7 +201,7 @@ const Header = (props) => {
               >
                 <i className="mdi mdi-cog"></i>
               </button>
-            </div>
+            </div>: null : null}
            
           </div>
         </div>
@@ -194,14 +210,19 @@ const Header = (props) => {
   );
 };
 
+Header.propTypes = {
+  location: PropTypes.object,
+  t: PropTypes.any,
+}; 
+
 const mapStatetoProps = (state) => {
   const { layoutType, showRightSidebar, leftMenu, leftSideBarType } =
     state.Layout;
   return { layoutType, showRightSidebar, leftMenu, leftSideBarType };
 };
 
-export default connect(mapStatetoProps, {
+export default withRouter(connect(mapStatetoProps, {
   showRightSidebarAction,
   toggleLeftmenu,
   changeSidebarType,
-})(withTranslation()(Header));
+})(withTranslation()(Header)));

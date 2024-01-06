@@ -45,6 +45,7 @@ const UserProfile = () => {
   }));
 
   useEffect(() => {
+    document.body.className = "bg-pattern";
     if (localStorage.getItem("authUser")) {
       const obj = JSON.parse(localStorage.getItem("authUser"));
       if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {

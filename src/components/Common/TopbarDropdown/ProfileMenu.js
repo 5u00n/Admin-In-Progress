@@ -18,6 +18,15 @@ import withRouter from "../withRouter";
 import user1 from "../../../assets/images/users/avatar-1.jpg";
 
 const ProfileMenu = props => {
+
+  //const dispatch = useDispatch();
+
+  const pathname = props.router.location.pathname.split("/")[1];
+
+
+  const [img, setImg] = useState();
+
+
   // Declare a new state variable, which we'll call "menu"
   const [menu, setMenu] = useState(false);
 
@@ -27,6 +36,7 @@ const ProfileMenu = props => {
     if (localStorage.getItem("authUser")) {
       if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
         const obj = JSON.parse(localStorage.getItem("authUser"));
+        //onsole.log("obj", obj);
         setusername(obj.displayName);
       } else if (
         process.env.REACT_APP_DEFAULTAUTH === "fake" ||
@@ -36,6 +46,16 @@ const ProfileMenu = props => {
         setusername(obj.username);
       }
     }
+    if (localStorage.getItem("authData")) {
+      const obj = JSON.parse(localStorage.getItem("authData"));
+
+      setusername(obj.name);
+      setImg(obj.url);
+      //console.log("header", uthData);
+ 
+    }
+
+
   }, [props.success]);
 
   return (
@@ -52,14 +72,14 @@ const ProfileMenu = props => {
         >
           <img
             className="rounded-circle header-profile-user"
-            src={user1}
+            src={img}
             alt="Header Avatar"
           />
           <span className="d-none d-xl-inline-block ms-2 me-2">{username}</span>
           <i className="mdi mdi-chevron-down d-none d-xl-inline-block" />
         </DropdownToggle>
         <DropdownMenu className="dropdown-menu-end">
-          <DropdownItem tag="a" href="/userprofile">
+          <DropdownItem tag="a" href={"/"+pathname+"/userprofile"}>
             {" "}
             <i className="ri-user-line align-middle me-2" />
             {props.t("Profile")}{" "}

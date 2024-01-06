@@ -123,13 +123,13 @@ import AddSchool1 from "../Pages/SuperAdmin/AddSchool1.js";
 const superadminRoutes =[
     //SuperAdmin
     { path: "/superadmin", component: <SuperAdmin /> },
-    { path: "/add-school-1", component: <AddSchool1 /> },
+    { path: "/superadmin/add-school-1", component: <AddSchool1 /> },
+    { path: "/superadmin/userprofile", component: <UserProfile /> },
     { path: "/:school_short/dashboard", component: <Dashboard/> },
 
     { path: "/:school_short", component: <Dashboard/> },
   
     //Dashboard Users
-    { path: "/:school_short/users/:students", component: <Students /> },
   
     //Users
     { path: "/:school_short/users/students", component: <Students /> },
@@ -168,9 +168,6 @@ const authProtectedRoutes = [
   { path: "/:school_short/dashboard", component: <Dashboard/> },
 
   { path: "/:school_short", component: <Dashboard/> },
-
-  //Dashboard Users
-  { path: "/:school_short/users/:students", component: <Students /> },
 
   //Users
   { path: "/:school_short/users/students", component: <Students /> },

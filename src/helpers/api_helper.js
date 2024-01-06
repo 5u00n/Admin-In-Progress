@@ -90,4 +90,14 @@ const getUserRole = () => {
   }
    };
 
-export { APIClient, setAuthorization, getLoggedinUser,getUserRole };
+   const getauthData = () => {
+    const userRole = localStorage.getItem("authData");
+    if (!userRole) {
+      return null;
+    }
+    else {
+      return JSON.parse(userRole);
+    }
+     };
+
+export { APIClient, setAuthorization, getLoggedinUser,getUserRole ,getauthData};

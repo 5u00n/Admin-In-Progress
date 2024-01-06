@@ -13,13 +13,13 @@ const Sidebar = (props) => {
   const pathname = props.router.location.pathname.split("/")[1];
   // console.log(pathname)
  
-   console.log("pathname", pathname);
+   //console.log("pathname", pathname);
 
   const navigate = useNavigate();
   const [activeLabel, setActiveLabel] = useState('inbox'); // State to track active label
 
   const handleNavigation = (label) => {
-      setActiveLabel(label); // Update the active label state
+      //setActiveLabel(label); // Update the active label state
       // Navigate to the dynamic URL while preserving the state
       navigate(`/${pathname}${label}`);
   };
@@ -155,7 +155,7 @@ const Sidebar = (props) => {
                             : "has-arrow"
                         }
 
-                        onClick={() => item.url ?handleNavigation(item.url):null}
+                        
                       >
                         <i
                           className={item.icon}
@@ -182,7 +182,7 @@ const Sidebar = (props) => {
                                 className={
                                   item.subMenu && "has-arrow waves-effect"
                                 }
-                                onClick={() => handleNavigation(item.link)}>
+                               >
                                 {props.t(item.sublabel)}
                               </Link>
                               {item.subMenu && (

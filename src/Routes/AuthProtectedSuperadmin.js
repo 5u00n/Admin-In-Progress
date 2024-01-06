@@ -8,7 +8,7 @@ const AuthProtectedSuperadmin = (props) => {
 
     const { userProfile,usersRole, loading } = useProfile();
 
-    console.log("Authprotected userRole : ", usersRole);
+    //console.log("Authprotected userRole : ", usersRole);
 
   /*
     redirect is un-auth access protected routes via url
@@ -18,9 +18,9 @@ const AuthProtectedSuperadmin = (props) => {
     return (
       <Navigate to={{ pathname: "/login", state: { from: props.location } }} />
     );
-  }else if(!userProfile || usersRole !== "superadmin"){
+  }else if(usersRole !== "superadmin"){
     return (
-      <Navigate to={{ pathname: "/superadmin", state: { from: props.location } }} />
+      <Navigate to={{ pathname: "/login", state: { from: props.location } }} />
     );
   }
 

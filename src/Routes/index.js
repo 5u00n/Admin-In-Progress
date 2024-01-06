@@ -51,6 +51,7 @@ const Index = (props) => {
   const [authRole, setauthRole] = useState("");
 
 
+  //console.log("Index Route ",localStorage );
   useEffect(() => {
     if (localStorage.getItem("authRole")) {
       const obj = JSON.parse(localStorage.getItem("authRole"));
