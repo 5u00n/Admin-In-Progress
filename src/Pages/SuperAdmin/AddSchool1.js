@@ -11,13 +11,10 @@ const AddSchool1 = () => {
 
     const [create_progress, setcreate_progress] = useState(1);
 
-    function set_create_progress(prog){
-        setcreate_progress(prog);
-    }
 
     const [school_list, setschool_list] = useState(false);
     function create_school() {
-        setschool_list(!school_list);
+        //setschool_list(!school_list);
         setcreate_progress(2);
     }
 
@@ -33,7 +30,11 @@ const AddSchool1 = () => {
 
     const [step, setStep] = useState(1);
 
-    const nextStep = () => setStep(step + 1);
+    const nextStep = () => {
+        
+        setStep(step + 1)
+    
+    };
     const prevStep = () => setStep(step - 1);
 
     useEffect(() => {
@@ -57,7 +58,7 @@ const AddSchool1 = () => {
 
                     {step === 2 && <FormTwo prev={prevStep} next={nextStep} tog_list={tog_list}/>}
 
-                    {step === 3 && (<FormThree prev={prevStep} create_school={create_school} create_progress={create_progress} set_create_progress={set_create_progress} />)}
+                    {step === 3 && (<FormThree prev={prevStep} create_school={create_school} create_progress={create_progress}  />)}
 
                 </Container>
 

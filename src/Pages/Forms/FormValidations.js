@@ -90,7 +90,7 @@ const FormValidations = () => {
       textarea: Yup.string().required("Please Enter Your Textarea"),
     }),
     onSubmit: (values) => {
-      console.log("values", values);
+      console.log("values validationType = useFormik ", values);
     },
   });
   // const regExp = /\b\d{5}\b/;
@@ -137,7 +137,7 @@ const FormValidations = () => {
         .required("Only Hex Value"),
     }),
     onSubmit: (values) => {
-      console.log("values", values);
+      console.log("values range formic ", values);
     },
   });
 

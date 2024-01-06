@@ -33,21 +33,7 @@ const FormThree = ({ prev, finish,create_school,create_progress }) => {
                         </Col>
                     </Row>
 
-                    <Row>
-                        <Col lg={4} md={4} sm={4}>
-                            <div className="mb-5 py-1 ">
-                                <Button color="primary" id="create-btn" onClick={create_school} className="btn btn-info w-md " style={{ marginRight: "0px" }}>
-                                    Create
-                                </Button>
-
-                                {create_progress===1 &&  <div></div>}
-                                {create_progress === 2 && <span className="spin" style={{width:"42px",height:"42px",float:"right",paddingLeft:"7px"}}><i className='mdi-autorenew mdi spin' style={{fontSize:"28px"}}></i></span>}
-                                {create_progress===3 &&  <i className='mdi mdi-progress-check font-size-20'></i>}
-                               
-                                
-                            </div>
-                        </Col>
-                    </Row>
+                
 
 
 
@@ -55,9 +41,12 @@ const FormThree = ({ prev, finish,create_school,create_progress }) => {
                         <button onClick={prev} className="btn btn-secondary w-md" style={{ marginRight: "36px" }}>
                             Prev
                         </button>
-                        <button onClick={finish} className="btn btn-primary w-md">
-                            Next
-                        </button>
+                        <Button color={"primary"} onClick={create_school} className="btn btn-primary w-md">
+                            Finish
+                        </Button> 
+                         {create_progress===1 &&  <span></span>}
+                                {create_progress === 2 && <span className="spin" style={{width:"42px",height:"42px",float:"right",paddingLeft:"7px"}}><i className='mdi-autorenew mdi spin' style={{fontSize:"28px"}}></i></span>}
+                                {create_progress===3 &&  <i className='mdi mdi-progress-check font-size-20'></i>}
                     </div>
                 </form>
             </Col>
