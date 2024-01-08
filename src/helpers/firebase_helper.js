@@ -317,6 +317,8 @@ class FirebaseAuthBackend {
         schoolData.school_logo = logoDownloadURL;
         schoolData.school_short = school_short;
 
+        
+
         //schoolData.created_by= firebase.auth().currentUser.uid;
         schoolData.created_on = new Date().toLocaleDateString();
         schoolData.agreement= true;
@@ -343,6 +345,7 @@ class FirebaseAuthBackend {
               const profile_url = await this.uploadImageAndGetURL(user.profile_image, profilePath);
               user.id = userID;
               user.type = "admin";
+              user.for_school= school_id;
               user.url = profile_url;
 
               userRef.set(user, (error) => {
