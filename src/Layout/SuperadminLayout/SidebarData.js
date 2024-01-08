@@ -21,7 +21,7 @@ const SidebarData = [
             { sublabel: "Staff", link: "/users/staff" },
             { sublabel: "Admin", link: "/users/admin" },
             { sublabel: "Addmission", link: "/users/addmission" },
-            
+
         ],
     },
     {
@@ -36,7 +36,7 @@ const SidebarData = [
             { sublabel: "Classroom", link: "/acadamics/classroom" },
             { sublabel: "Department", link: "/acadamics/department" },
             { sublabel: "Event Calendar", link: "/acadamics/event-calendar" },
-            
+
         ],
     },
     {
@@ -70,6 +70,6 @@ const SidebarData = [
         isHasArrow: true,
         url: "/school-setting",
     },
-    
+
 ]
 export default SidebarData;

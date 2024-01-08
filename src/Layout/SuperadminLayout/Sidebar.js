@@ -10,10 +10,11 @@ import { Link, useNavigate } from "react-router-dom";
 //i18n
 import { withTranslation } from "react-i18next";
 const Sidebar = (props) => {
-  const pathname = props.router.location.pathname.split("/")[1];
+ // const pathname = props.router.location.pathname.split("/")[1];
   // console.log(pathname)
  
    //console.log("pathname", pathname);
+   const [schoolpath, setSchoolpath] = useState(props.router.location.pathname.split("/")[1]);
 
   const navigate = useNavigate();
   const [activeLabel, setActiveLabel] = useState('inbox'); // State to track active label
@@ -21,7 +22,7 @@ const Sidebar = (props) => {
   const handleNavigation = (label) => {
       //setActiveLabel(label); // Update the active label state
       // Navigate to the dynamic URL while preserving the state
-      navigate(`/${pathname}${label}`);
+  ///    navigate(`/${pathname}${label}`);
   };
  
   
@@ -142,13 +143,14 @@ const Sidebar = (props) => {
           <div id="sidebar-menu">
             <ul className="metismenu list-unstyled" id="side-menu-item">
               {(sidebarData || []).map((item, key) => (
+                
                 <React.Fragment key={key}>
                   {item.isMainMenu ? (
                     <li className="menu-title">{props.t(item.label)}</li>
                   ) : (
                     <li key={key}>
                       <Link
-                        to={item.url ?+item.url : "#"}
+                        to={item.url ?`/${schoolpath}${item.url}`: ""}
                         className={
                           (item.issubMenubadge || item.isHasArrow)
                             ? " "
@@ -178,7 +180,7 @@ const Sidebar = (props) => {
                           {item.subItem.map((item, key) => (
                             <li key={key}>
                               <Link
-                                to={+item.link}
+                                to={`/${schoolpath}${item.link}`}
                                 className={
                                   item.subMenu && "has-arrow waves-effect"
                                 }

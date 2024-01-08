@@ -77,7 +77,7 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
 
                         {Object.keys(schools).map(key => (
                             <Col className="col-lg-auto col-md-auto col-sm-6" key={key}>
-                                <Link to={"/" + schools[key].school_short+"/dashboard"} >
+                                <Link to={"/" + schools[key].school_short + "/dashboard"} >
                                     <Card style={{
                                         minHeight: '12rem',
                                         minWidth: '12rem',
@@ -88,9 +88,9 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
                                             padding: '0'
                                         }}>
                                             <Card className="bg-white" style={{
-                                            height: '7rem',
-                                            padding: '1rem',
-                                        }}>
+                                                height: '7rem',
+                                                padding: '1rem',
+                                            }}>
                                                 <CardImg className="img-fluid center " src={schools[key].school_logo} style={{
                                                     height: '100%',
                                                     alignSelf: 'center',
@@ -101,7 +101,7 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
                                         <CardBody className="m-0 py-1 mt-1">
                                             <CardTitle className="mt-0 font-size-11 text-black" >{schools[key].school_name}</CardTitle>
                                             <CardSubtitle className="font-size-10 text-white  ">
-                                                {schools[key].school_address.split(',').pop().trim()+", "+schools[key].state}</CardSubtitle>
+                                                {schools[key].school_address.split(',').pop().trim() + ", " + schools[key].state}</CardSubtitle>
                                             <span to="#" className="card-link">
                                                 <span className="text-white font-size-11 "><i className="mdi mdi-pencil" aria-hidden="true"></i>Edit</span>
                                             </span>

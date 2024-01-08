@@ -129,11 +129,11 @@ const Layout = (props) => {
 
       <div id="layout-wrapper">
         <Header toggleMenuCallback={toggleMenuCallback} />
-        {pathname !== "superadmin" ? pathname !== "/add-school-1" ? <Sidebar
+        {pathname !== "superadmin"  ? <Sidebar
           theme={leftSideBarTheme}
           type={leftSideBarType}
           isMobile={isMobile}
-        /> : null : null}
+        /> :  null}
         <div className={pathname === "superadmin" ? pathname === "/add-school-1" ? "py-5" : "py-5" : "main-content"}>{props.children}</div>
         <Footer />
       </div>

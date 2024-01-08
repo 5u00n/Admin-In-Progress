@@ -188,7 +188,7 @@ const Header = (props) => {
               <NotificationDropdown />*/}
 
             <ProfileMenu />
-
+{/*
             {pathname !== "/superadmin" ? pathname !== "/add-school-1" ?<div
               className="dropdown d-inline-block"
               onClick={() => {
@@ -202,6 +202,7 @@ const Header = (props) => {
                 <i className="mdi mdi-cog"></i>
               </button>
             </div>: null : null}
+          */}
            
           </div>
         </div>
