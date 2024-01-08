@@ -3,7 +3,9 @@ import firebase from 'firebase/compat/app';
 // Add the Firebase products that you want to use
 import "firebase/compat/auth";
 import "firebase/compat/database";
+import "firebase/compat/storage";
 //import "firebase/compat/firestore";
+
 
 class FirebaseAuthBackend {
   constructor(firebaseConfig) {
@@ -39,6 +41,9 @@ class FirebaseAuthBackend {
     });
   };
 
+
+
+
   /**
    * Registers the user with given details
    */
@@ -55,6 +60,21 @@ class FirebaseAuthBackend {
             reject(this._handleError(error));
           }
         );
+    });
+  };
+
+
+  addUser = (email, password) => {
+    return new Promise((resolve, reject) => {
+      try {
+        const userCredential = firebase.auth().createUserWithEmailAndPassword(email, password);
+        resolve(userCredential)
+
+        // You may perform additional actions after adding the user
+
+      } catch (error) {
+        reject(error.message);
+      }
     });
   };
 
@@ -208,12 +228,33 @@ class FirebaseAuthBackend {
     return data;
   };
 
-  fetchDataRef= (path) => {
-    if(path===null){
+  fetchDataRef = (path) => {
+    if (path === null) {
       return firebase.database().ref();
     }
-    return firebase.database().ref(path)   
+    return firebase.database().ref(path)
   }
+
+  uploadDataWithId = (path, data) => {
+    return new Promise((resolve, reject) => {
+      const databaseRef = firebase.database().ref(path);
+      const newChildRef = databaseRef.push(); // This creates a new child location using a unique key
+      newChildRef.set(data, (error) => {
+        if (error) {
+          reject(this._handleError(error)); // Handle the error if upload fails
+        } else {
+          resolve(newChildRef.key); // Resolve with the unique key of the newly added data
+        }
+      });
+    });
+  };
+
+  uploadSchoolData = (schoolData) => {
+    return this.uploadDataWithId('/schools', schoolData);
+  };
+
+
+
 
   /**
    * 
@@ -232,6 +273,105 @@ class FirebaseAuthBackend {
     const schoolUsesRef = firebase.database().ref(schoolName).child(usersType);
     return schoolUsesRef;
   }
+
+
+  uploadImageAndGetURL = (imageFile, path) => {
+    return new Promise((resolve, reject) => {
+      const storageRef = firebase.storage().ref(path);
+      const uploadTask = storageRef.put(imageFile);
+
+      uploadTask.on(
+        firebase.storage.TaskEvent.STATE_CHANGED,
+        (snapshot) => {
+          // Optional: Handle progress updates
+          // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          // console.log('Upload is ' + progress + '% done');
+        },
+        (error) => {
+          // Handle unsuccessful uploads
+          reject(this._handleError(error));
+        },
+        () => {
+          // Handle successful uploads on complete
+          uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+            resolve(downloadURL);
+          });
+        }
+      );
+    });
+  };
+
+  uploadSchoolDataWithLogo = (schoolData, logoFile, userData) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        // Upload the logo image and get its download URL
+
+        const school_short = schoolData.school_name.split(' ').map(word => word[0]).join('').toUpperCase();
+        const school_id = school_short + '-' + new Date().getTime();
+        const logoPath = `schools/${school_id}/logo/${logoFile.name}`;
+        const usersPath = `/users`;
+        const logoDownloadURL = await this.uploadImageAndGetURL(logoFile, logoPath);
+
+        // Add logo URL to school data
+        schoolData.id = school_id;
+        schoolData.school_logo = logoDownloadURL;
+        schoolData.school_short = school_short;
+
+        //schoolData.created_by= firebase.auth().currentUser.uid;
+        schoolData.created_on = new Date().toLocaleDateString();
+        schoolData.agreement= true;
+
+
+
+
+
+        // Now, save the school data along with the logo URL to the Realtime Database
+        const newSchoolRef = firebase.database().ref('/schools').child(school_id);
+        newSchoolRef.set(schoolData, (error) => {
+          if (error) {
+            reject(this._handleError(error));
+          } else {
+
+            userData.map(async (user) => {
+              const userUID = await this.addUser(user.email, user.pass);
+              const userID= String(userUID.user.uid);
+
+
+              const userRef = firebase.database().ref(usersPath).child(userID);              
+              const schoolUserRef = newSchoolRef.child("admin").child(userID);
+              const profilePath = `users/${userID}/profile_image/${user.profile_image.name}`;
+              const profile_url = await this.uploadImageAndGetURL(user.profile_image, profilePath);
+              user.id = userID;
+              user.type = "admin";
+              user.url = profile_url;
+
+              userRef.set(user, (error) => {
+                if (error) {
+                  reject(this._handleError(error));
+                } else {
+                  schoolUserRef.set(user, (error) => {
+                    if (error) {
+                      reject(this._handleError(error));
+                    } else {
+
+                      resolve({ key: newSchoolRef.key, ...schoolData,...user });
+                    }
+                  });
+                }
+              });
+
+            });
+            // resolve({ key: newSchoolRef.key, ...schoolData });
+          }
+        });
+      } catch (error) {
+        reject(this._handleError(error));
+      }
+    });
+  };
+
+
+
 
 
   /**

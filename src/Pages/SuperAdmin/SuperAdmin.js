@@ -100,8 +100,8 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
                                         </CardBody>
                                         <CardBody className="m-0 py-1 mt-1">
                                             <CardTitle className="mt-0 font-size-11 text-black" >{schools[key].school_name}</CardTitle>
-                                            <CardSubtitle className="font-size-10 text-muted ">
-                                                {schools[key].school_address}</CardSubtitle>
+                                            <CardSubtitle className="font-size-10 text-white  ">
+                                                {schools[key].school_address.split(',').pop().trim()+", "+schools[key].state}</CardSubtitle>
                                             <span to="#" className="card-link">
                                                 <span className="text-white font-size-11 "><i className="mdi mdi-pencil" aria-hidden="true"></i>Edit</span>
                                             </span>

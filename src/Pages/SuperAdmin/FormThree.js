@@ -1,16 +1,24 @@
-import React from 'react';
-import { Row, Col, Button} from 'reactstrap';
+import React, {useState} from 'react';
+import { Row, Col, Button,Form} from 'reactstrap';
 import illustration from '../../assets/images/illutration/globe_learning.png';
-const FormThree = ({ prev, finish,create_school,create_progress }) => {
+const FormThree = ({ prev, onSubmit,create_progress }) => {
 
-    console.log(create_progress);
+
+    const [agree, setagree] = useState(false);
+
+
     return (
         <Row>
             <Col md={6}>
-                <form className='my-5 py-5 px-3 text-white'>
+                <Form className=' py-3 px-1 text-white'
+                onSubmit={(e)=>{
+                    e.preventDefault();
+                    onSubmit(e);
+                }}
+                >
                     <Row className="flex-column">
                         <Col lg={12}>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus possimus commodi, quae at facilis recusandae fugit, asperiores vero hic voluptates similique beatae tenetur sapiente itaque eum reprehenderit, inventore ducimus soluta.</p>
+                            <p>You have reached the last step to create a school management system , This will create a enviroment and data space dedicated to this organisation only.</p>
                         </Col>
                     </Row>
                     <Row>
@@ -21,6 +29,7 @@ const FormThree = ({ prev, finish,create_school,create_progress }) => {
                                         className="form-check-input"
                                         type="checkbox"
                                         id="floatingCheck"
+                                        onClick={() => setagree(!agree)}
                                     />
                                     <label
                                         className="form-check-label"
@@ -41,14 +50,14 @@ const FormThree = ({ prev, finish,create_school,create_progress }) => {
                         <button onClick={prev} className="btn btn-secondary w-md" style={{ marginRight: "36px" }}>
                             Prev
                         </button>
-                        <Button color={"primary"} onClick={create_school} className="btn btn-primary w-md">
+                        <Button color={"primary"} className="btn btn-primary w-md" disabled={!agree}>
                             Finish
                         </Button> 
                          {create_progress===1 &&  <span></span>}
                                 {create_progress === 2 && <span className="spin" style={{width:"42px",height:"42px",float:"right",paddingLeft:"7px"}}><i className='mdi-autorenew mdi spin' style={{fontSize:"28px"}}></i></span>}
                                 {create_progress===3 &&  <i className='mdi mdi-progress-check font-size-20'></i>}
                     </div>
-                </form>
+                </Form>
             </Col>
             <Col md={3} lg={4} className="d-none d-md-block mt-auto">
                 <img src={illustration} className="w-200" alt='side' />

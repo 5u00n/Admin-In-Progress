@@ -58,6 +58,8 @@ const Index = (props) => {
       setauthRole(obj);
       //console.log("Index obj", obj);
 
+    }else{
+      setauthRole("login");
     }
   }, [dispatch]);
 
@@ -72,6 +74,7 @@ const Index = (props) => {
   // const [userRole, setUserRole] = React.useState("admin");
   // const { userRole,setUserRole } = useSelector((state) => state.login);
   const defaultScreens = {
+    login: "/login",
     superadmin: "/superadmin",
     admin: "/dashboard",
     teacher: "/dashboard",
