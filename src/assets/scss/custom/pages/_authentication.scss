@@ -8,6 +8,13 @@
     background-position: center;
 }
 
+.bg-pattern-light {
+    // background-image: url("../images/bg.jpg");
+    background-image: url("../../../images/bg-light.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
 .auth-logo {
     &.logo-light {
         display: $display-none !important;

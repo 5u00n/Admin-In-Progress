@@ -30,7 +30,7 @@ const Dashboard = () => {
         setidx(obj.idx);
       }
     }*/
-      document.body.className = "bg-pattern";
+      document.body.className = "bg-pattern-light";
   }, []);
   return (
     <React.Fragment>
