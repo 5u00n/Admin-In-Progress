@@ -340,7 +340,7 @@ class FirebaseAuthBackend {
 
 
               const userRef = firebase.database().ref(usersPath).child(userID);              
-              const schoolUserRef = newSchoolRef.child("admin").child(userID);
+              const schoolUserRef = newSchoolRef.child("users").child("admin").child(userID);
               const profilePath = `users/${userID}/profile_image/${user.profile_image.name}`;
               const profile_url = await this.uploadImageAndGetURL(user.profile_image, profilePath);
               user.id = userID;
