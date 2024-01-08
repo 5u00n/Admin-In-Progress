@@ -2,42 +2,37 @@ import React, { useEffect } from "react";
 
 //import Breadcrumbs from "../../components/Common/Breadcrumb";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 
 import { Container, Row, Card, Col, CardBody, CardTitle, CardSubtitle, CardImg } from "reactstrap";
 
+import { getFirebaseBackend } from "../../helpers/firebase_helper";
 
-import { fetchDataRequest } from "../../store/database/actions";
-
-const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
+const SuperAdmin = (props) => {
 
 
+    const firebaseBackEnd = getFirebaseBackend();
+
+    const [schools, setSchools] = React.useState([]);
 
 
     useEffect(() => {
         document.body.className = "bg-pattern";
-        // remove classname when component will unmount
+        // remove classname when component will unmount fetchDataRef
 
-        // Dispatch the action to fetch data when the component mounts
-        fetchDataRequest();
+        const schoolsRef = firebaseBackEnd.fetchDataRef("schools");
+        const onSchoolsDataChange = schoolsRef.on('value', (snapshot) => {
+            const schoolsData = snapshot.val();
+            setSchools(schoolsData);
+        });
 
-    }, [fetchDataRequest]);
-    var schools = [];
-    if (loading) {
-        // console.log("Loading...");
-        //return <p>Loading...</p>;
-    }
+        // Clean up the listener when the component unmounts
+        return () => schoolsRef.off('value', onSchoolsDataChange);
+    }, [firebaseBackEnd]);
 
-    if (data != null) {
-
-        schools = data.schools;
-    }
-
-    if (error) {
-        //return <p>Error: {error}</p>;
-        console.log("Error:", error);
-    }
-
+    const handleSchoolSelect = (schoolData) => {
+        localStorage.setItem("selectedSchool", JSON.stringify(schoolData.id));
+        // Navigate to the dashboard or perform other actions as needed
+    };
 
     return (
 
@@ -47,14 +42,14 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
                 <Container fluid>
 
                     <Row>
-                        <Col className='mt-4 mb-4' lg={8} >
-                            <h1 className="display-4 mt-2  text-white" >Welcome to Supeadmin Panel of EduSoftHub</h1>
+                        <Col className='mt-4 mb-4 mx-5' lg={8} >
+                            <h1 className="display-4 mt-2  text-white" >Welcome to Superdmin Panel of EduSoftHub</h1>
 
                         </Col>
                     </Row>
                     <Row className="mx-5">
                         <Col className='mb-4'>
-                            <p className="text-white">Lorem ipsum dolor sit amet consectetur. Quisque elit viverra velit vel amet.</p>
+                            <p className="text-white">Create new school system enviroment and manage them.</p>
                         </Col>
                     </Row>
 
@@ -78,7 +73,7 @@ const SuperAdmin = ({ data, loading, error, fetchDataRequest }) => {
                         {Object.keys(schools).map(key => (
                             <Col className="col-lg-auto col-md-auto col-sm-6" key={key}>
                                 <Link to={"/" + schools[key].school_short + "/dashboard"} >
-                                    <Card style={{
+                                    <Card onClick={() => handleSchoolSelect(schools[key])} style={{
                                         minHeight: '12rem',
                                         minWidth: '12rem',
                                         maxWidth: '19rem',
@@ -131,8 +126,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = {
-    fetchDataRequest,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SuperAdmin);
+export default (SuperAdmin);
